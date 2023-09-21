@@ -1,0 +1,64 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+section {
+    background-color: #fff;
+    border: 5px solid #ccc;
+    padding: 50px;
+    margin: 50px;
+    border-radius: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    color: #4F4F4F;
+}
+
+h4 {
+    color: #808080;
+    margin-block-start: 0px;
+    margin-block-end: 5px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+/* Estilos para o cabeçalho */
+header {
+    background-color: #5d808a;
+    color: #fcfcfc;
+    text-align: center;
+    padding: 1px;
+}
+
+/* Estilos para caixas de texto */
+input[type="text"] {
+    width: 99%;
+    padding: 9px;
+    margin-bottom: 1px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Estilos para o botão QR Code */
+#scanButton {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Estilos para a lista de atendimentos anteriores */
+#previousAppointments {
+    list-style-type: none;
+    padding: 0;
+}
+
+    #previousAppointments li {
+        margin-bottom: 10px;
+    }
