@@ -5,11 +5,20 @@
     padding: 0;
 }
 
-section {
+section[id="pnAtendimento"] {
     background-color: #fff;
-    border: 5px solid #ccc;
+    border: 2px solid #ccc;
     padding: 50px;
-    margin: 50px;
+    margin: 10%;
+    border-radius: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+section[id="pnPaciente"] {
+    background-color: #fff;
+    border: 2px solid #ccc;
+    padding: 50px;
+    margin: 10%;
     border-radius: 50px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
@@ -27,7 +36,6 @@ h4 {
     font-weight: bold;
 }
 
-/* Estilos para o cabeçalho */
 header {
     background-color: #5d808a;
     color: #fcfcfc;
@@ -35,16 +43,38 @@ header {
     padding: 1px;
 }
 
-/* Estilos para caixas de texto */
 input[type="text"] {
-    width: 99%;
-    padding: 9px;
+    width: 98%;
+    padding: 8px;
     margin-bottom: 1px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-/* Estilos para o botão QR Code */
+input[type="password"] {
+    width: 30%;
+    padding: 7px;
+    margin-bottom: 1px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="date"] {
+    width: 30%;
+    padding: 7px;
+    margin-bottom: 1px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.action-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
 #scanButton {
     background-color: #4CAF50;
     color: white;
@@ -62,3 +92,11 @@ input[type="text"] {
     #previousAppointments li {
         margin-bottom: 10px;
     }
+
+input[type="text"][id="userLembreteSenha"] {
+    width: 30%;
+    padding: 8px;
+    margin-bottom: 1px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
