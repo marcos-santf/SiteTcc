@@ -24,9 +24,9 @@
             <p><h4>Telefone: </h4><input type="text" id="userPhone" runat="server" /></p>
             <p><h4>E-mail: </h4><input type="text" id="userEmail"  onblur="restoreDefaultText(this)" runat="server" /></p>
             <section id="pnSenha" runat="server">
-            <p><h4>Senha: </h4><input type="password" id="userSenha"  onblur="restoreDefaultText(this)" runat="server" /></p>
-            <p><h4>Confirme a senha: </h4><input type="password" id="userConfSenha"  onblur="restoreDefaultText(this)" runat="server" /></p>
-        <p><h4>Lembrete Senha: </h4><input type="text" id="userLembreteSenha" onblur="restoreDefaultText(this)" runat="server" /></p>
+                <p><h4>Senha: </h4><input type="password" id="userSenha"  onblur="restoreDefaultText(this)" runat="server" /></p>
+                <p><h4>Confirme a senha: </h4><input type="password" id="userConfSenha"  onblur="restoreDefaultText(this)" runat="server" /></p>
+                <p><h4>Lembrete Senha: </h4><input type="text" id="userLembreteSenha" onblur="restoreDefaultText(this)" runat="server" /></p>
             </section>
             <asp:Button ID="submitButton" runat="server" Text="Enviar Dados" OnClick="submitButton_Click" CssClass="action-button" />
             <%--<input  id="errorPopupMessage" style="font-size: 15px; text-align: center; color: red;" runat="server" visible="false" />--%>

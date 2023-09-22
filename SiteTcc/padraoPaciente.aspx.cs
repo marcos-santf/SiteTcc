@@ -28,12 +28,12 @@ namespace SiteTCC
         {
             clsValidaDados validaDados = new clsValidaDados();
 
-            string nomeCompleto = userName.Value; 
+            string nomeCompleto = userName.Value;
             string cpf = userCpf.Value;
             string rg = userRg.Value;
             string dataNascimento = userDateOfBirth.Value;
             string responsavel = userResponsavel.Value;
-            string telefone = userPhone.Value; 
+            string telefone = userPhone.Value;
             string email = userEmail.Value;
             string senha = userSenha.Value;
             string confirmaSenha = userConfSenha.Value;
@@ -112,15 +112,15 @@ namespace SiteTCC
             userEmail.Value = (string)ds.Tables[0].Rows[0]["ds_email"];
 
             if(userName.Value != string.Empty)
-            userName.Disabled = true;
+                userName.Disabled = true;
             if (userCpf.Value != string.Empty)
-            userCpf.Disabled = true;
+                userCpf.Disabled = true;
             if (Date.Value != string.Empty)
                 Date.Disabled = true;
             if (userPhone.Value != string.Empty)
-            userPhone.Disabled = true;
+                userPhone.Disabled = true;
             if (userEmail.Value != string.Empty)
-            userEmail.Disabled = true;
+                userEmail.Disabled = true;
 
             pnSenha.Visible = false;
         }

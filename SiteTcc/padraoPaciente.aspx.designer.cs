@@ -15,6 +15,15 @@ namespace SiteTCC
     {
 
         /// <summary>
+        /// Controle pnPaciente.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pnPaciente;
+
+        /// <summary>
         /// Controle userForm.
         /// </summary>
         /// <remarks>
@@ -42,13 +51,31 @@ namespace SiteTCC
         protected global::System.Web.UI.HtmlControls.HtmlInputText userCpf;
 
         /// <summary>
+        /// Controle userRg.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText userRg;
+
+        /// <summary>
         /// Controle userDateOfBirth.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText userDateOfBirth;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl userDateOfBirth;
+
+        /// <summary>
+        /// Controle Date.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Date;
 
         /// <summary>
         /// Controle userResponsavel.
@@ -78,6 +105,15 @@ namespace SiteTCC
         protected global::System.Web.UI.HtmlControls.HtmlInputText userEmail;
 
         /// <summary>
+        /// Controle pnSenha.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pnSenha;
+
+        /// <summary>
         /// Controle userSenha.
         /// </summary>
         /// <remarks>
@@ -94,6 +130,15 @@ namespace SiteTCC
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputPassword userConfSenha;
+
+        /// <summary>
+        /// Controle userLembreteSenha.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText userLembreteSenha;
 
         /// <summary>
         /// Controle submitButton.
