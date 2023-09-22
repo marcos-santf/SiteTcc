@@ -5,20 +5,24 @@
     padding: 0;
 }
 
-section[id="pnAtendimento"] {
-    background-color: #fff;
-    border: 2px solid #ccc;
-    padding: 50px;
-    margin: 10%;
-    border-radius: 50px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
 section[id="pnPaciente"] {
     background-color: #fff;
     border: 2px solid #ccc;
     padding: 50px;
-    margin: 10%;
+    margin: 3%;
+    margin-right: 20%;
+    margin-left:20%;
+    border-radius: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+section[id="pnAtendimento"] {
+    background-color: #fff;
+    border: 2px solid #ccc;
+    padding: 50px;
+    margin: 3%;
+    margin-right: 20%;
+    margin-left: 20%;
     border-radius: 50px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
@@ -60,7 +64,7 @@ input[type="password"] {
 }
 
 input[type="date"] {
-    width: 30%;
+    width: 25%;
     padding: 7px;
     margin-bottom: 1px;
     border: 1px solid #ccc;

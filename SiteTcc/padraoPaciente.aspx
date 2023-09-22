@@ -16,7 +16,7 @@
         <section id="pnTitulo" style="text-align: center;">
              <h2>Informações do Paciente</h2>
         </section>
-        <form id="userForm" runat="server" >
+        <form id="userForm" runat="server">
             <p><h4>Nome Completo: </h4><input type="text" id="userName" onblur="restoreDefaultText(this)" runat="server" /></p>
             <p><h4>CPF: </h4><input type="text" id="userCpf" onblur="restoreDefaultText(this)" runat="server" oninput="this.value = this.value.replace(/\D/g, '')" /></p>
             <p><h4>RG: </h4><input type="text" id="userRg" onblur="restoreDefaultText(this)" runat="server" /></p>
