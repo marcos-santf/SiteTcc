@@ -12,9 +12,10 @@
     <header>
         <h1>Triagem Rápida: Agilizador de Atendimento de Saúde</h1>
     </header>
-
     <section id="pnPaciente" runat="server" visible="true">
-        <h2>Informações do Paciente</h2>
+        <section id="pnTitulo" style="text-align: center;">
+             <h2>Informações do Paciente</h2>
+        </section>
         <form id="userForm" runat="server" >
             <p><h4>Nome Completo: </h4><input type="text" id="userName" onblur="restoreDefaultText(this)" runat="server" /></p>
             <p><h4>CPF: </h4><input type="text" id="userCpf" onblur="restoreDefaultText(this)" runat="server" oninput="this.value = this.value.replace(/\D/g, '')" /></p>
@@ -28,11 +29,11 @@
                 <p><h4>Confirme a senha: </h4><input type="password" id="userConfSenha"  onblur="restoreDefaultText(this)" runat="server" /></p>
                 <p><h4>Lembrete Senha: </h4><input type="text" id="userLembreteSenha" onblur="restoreDefaultText(this)" runat="server" /></p>
             </section>
-            <asp:Button ID="submitButton" runat="server" Text="Enviar Dados" OnClick="submitButton_Click" CssClass="action-button" />
-            <%--<input  id="errorPopupMessage" style="font-size: 15px; text-align: center; color: red;" runat="server" visible="false" />--%>
+            <section id="pnBotao" style="text-align: center;">
+                 <asp:Button ID="submitButton" runat="server" Text="Enviar Dados" OnClick="submitButton_Click" CssClass="action-button" />
+            </section>
         </form>
     </section>
-
     <section id="pnAtendimento" runat="server" visible="true">
         <h2>Atendimentos Anteriores</h2>
         <ul id="previousAppointments">
