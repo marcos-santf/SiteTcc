@@ -107,14 +107,16 @@ namespace SiteTCC
             userRg.Value = (string)ds.Tables[0].Rows[0]["ds_rg"];
             DateTime dataNascimento = (DateTime)ds.Tables[0].Rows[0]["dt_nascimento"];
             Date.Value = dataNascimento.ToString("dd/MM/yyyy");
-            userResponsavel.Value = (string)ds.Tables[0].Rows[0]["ds_responsavel"];
-            userPhone.Value = (string)ds.Tables[0].Rows[0]["ds_telefone"];
-            userEmail.Value = (string)ds.Tables[0].Rows[0]["ds_email"];
+            userResponsavel.Value = ds.Tables[0].Rows[0]["ds_responsavel"] == DBNull.Value  ? string.Empty : (string)ds.Tables[0].Rows[0]["ds_responsavel"];
+            userPhone.Value = ds.Tables[0].Rows[0]["ds_telefone"] == DBNull.Value ? string.Empty : (string)ds.Tables[0].Rows[0]["ds_telefone"];
+            userEmail.Value = ds.Tables[0].Rows[0]["ds_email"] == DBNull.Value ? string.Empty : (string)ds.Tables[0].Rows[0]["ds_email"];
 
             if(userName.Value != string.Empty)
                 userName.Disabled = true;
             if (userCpf.Value != string.Empty)
                 userCpf.Disabled = true;
+            if (userRg.Value != string.Empty)
+                userRg.Disabled = true;
             if (Date.Value != string.Empty)
                 Date.Disabled = true;
             if (userPhone.Value != string.Empty)
