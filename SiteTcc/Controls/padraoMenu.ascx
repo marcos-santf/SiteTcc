@@ -8,7 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SideBar</title>
     <link rel="stylesheet" href="css/styleMenu.css">
-
+    <link rel="stylesheet" href="css/styleMenuCanto.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
 
@@ -61,6 +62,24 @@
         </ul>
 
     </nav><!--menu-lateral-->
+    <div class="menu">
+      <a href="#account">
+        <i class="fas fa-user"></i>
+      </a>
+      <a href="#info">
+        <i class="fas fa-info"></i>
+      </a>
+      <a href="#message">
+        <i class="fas fa-comment-dots"></i>
+      </a>
+      <a href="#contact">
+        <i class="fas fa-phone-alt"></i>
+      </a>
+      <button id="toggle-btn">
+        <i class="fas fa-plus"></i>
+      </button>
+    </div>
     <script src="js/scriptMenu.js"></script>
+    <script src="js/scriptMenuCanto.js"></script>
 </body>
 </html>

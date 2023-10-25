@@ -254,6 +254,7 @@
     <Content Include="css\styleEnfermagem.css" />
     <Content Include="css\styleLogin.css" />
     <Content Include="css\styleMenu.css" />
+    <Content Include="css\styleMenuCanto.css" />
     <Content Include="css\stylePaciente.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
@@ -261,6 +262,7 @@
     <Content Include="img\icons_hospital.png" />
     <Content Include="js\scriptLogin.js" />
     <Content Include="js\scriptMenu.js" />
+    <Content Include="js\scriptMenuCanto.js" />
     <Content Include="padraoEnfermagem.aspx" />
     <Content Include="padraoLogin.aspx" />
     <Content Include="padraoPaciente.aspx" />
