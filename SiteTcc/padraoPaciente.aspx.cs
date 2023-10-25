@@ -22,7 +22,10 @@ namespace SiteTCC
             if (Request.QueryString["P"] != "1")
                 CarregaControle();
             else
+            {
                 pnAtendimento.Visible = false;
+                MenuControl.Visible = false;
+            }
         }
         protected void submitButton_Click(object sender, EventArgs e)
         {

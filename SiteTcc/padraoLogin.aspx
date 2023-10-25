@@ -6,7 +6,7 @@
       <meta charset="UTF-8">
       <title>Login</title>
       <link rel="stylesheet" href="css/styleLogin.css">
-
+      <link rel="website icon" type="png" href="img/icons_hospital.png"/>
     </head>
     <body>
         <div class="page">

@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="padraoPaciente.aspx.cs" Inherits="SiteTCC.padraoPaciente" %>
+<%@ Register Src="Controls/padraoMenu.ascx" TagName="Menu" TagPrefix="uc" %>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -6,7 +7,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/stylePaciente.css">
-    <title>Front-end do Hospital</title>
+    <title>Paciente</title>
+    <link rel="website icon" type="png" href="img/icons_hospital.png"/>
+     <uc:Menu runat="server" ID="MenuControl"/>
 </head>
 <body>
     <header>

@@ -7,11 +7,11 @@
 // </gerado automaticamente>
 //------------------------------------------------------------------------------
 
-namespace SiteTCC
+namespace SiteTcc
 {
 
 
-    public partial class padraoPaciente
+    public partial class padraoEnfermagem
     {
 
         /// <summary>
@@ -24,22 +24,31 @@ namespace SiteTCC
         protected global::SiteTCC.padraoMenu1 MenuControl;
 
         /// <summary>
-        /// Controle pnPaciente.
+        /// Controle pnEnfermagem.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pnPaciente;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pnEnfermagem;
 
         /// <summary>
-        /// Controle userForm.
+        /// Controle userCoren.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm userForm;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText userCoren;
+
+        /// <summary>
+        /// Controle userId.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText userId;
 
         /// <summary>
         /// Controle userName.
@@ -51,112 +60,49 @@ namespace SiteTCC
         protected global::System.Web.UI.HtmlControls.HtmlInputText userName;
 
         /// <summary>
-        /// Controle userCpf.
+        /// Controle pnPaciente.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText userCpf;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pnPaciente;
 
         /// <summary>
-        /// Controle userRg.
+        /// Controle patientName.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText userRg;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText patientName;
 
         /// <summary>
-        /// Controle userDateOfBirth.
+        /// Controle patientCpf.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl userDateOfBirth;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText patientCpf;
 
         /// <summary>
-        /// Controle Date.
+        /// Controle patientPhone.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Date;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText patientPhone;
 
         /// <summary>
-        /// Controle userResponsavel.
+        /// Controle patientEmail.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText userResponsavel;
-
-        /// <summary>
-        /// Controle userPhone.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText userPhone;
-
-        /// <summary>
-        /// Controle userEmail.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText userEmail;
-
-        /// <summary>
-        /// Controle pnSenha.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pnSenha;
-
-        /// <summary>
-        /// Controle userSenha.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword userSenha;
-
-        /// <summary>
-        /// Controle userConfSenha.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword userConfSenha;
-
-        /// <summary>
-        /// Controle userLembreteSenha.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText userLembreteSenha;
-
-        /// <summary>
-        /// Controle submitButton.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button submitButton;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText patientEmail;
 
         /// <summary>
         /// Controle pnAtendimento.
@@ -166,5 +112,68 @@ namespace SiteTCC
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl pnAtendimento;
+
+        /// <summary>
+        /// Controle symptoms.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText symptoms;
+
+        /// <summary>
+        /// Controle pressure.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText pressure;
+
+        /// <summary>
+        /// Controle heartRate.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText heartRate;
+
+        /// <summary>
+        /// Controle oxygenLevel.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText oxygenLevel;
+
+        /// <summary>
+        /// Controle patientComplaint.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText patientComplaint;
+
+        /// <summary>
+        /// Controle observations.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText observations;
+
+        /// <summary>
+        /// Controle pnAtendAnter.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pnAtendAnter;
     }
 }

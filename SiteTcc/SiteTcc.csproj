@@ -251,14 +251,17 @@
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Controls\padraoMenu.ascx" />
+    <Content Include="css\styleEnfermagem.css" />
     <Content Include="css\styleLogin.css" />
     <Content Include="css\styleMenu.css" />
     <Content Include="css\stylePaciente.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="img\icons_hospital.png" />
     <Content Include="js\scriptLogin.js" />
     <Content Include="js\scriptMenu.js" />
+    <Content Include="padraoEnfermagem.aspx" />
     <Content Include="padraoLogin.aspx" />
     <Content Include="padraoPaciente.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -346,6 +349,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="padraoEnfermagem.aspx.cs">
+      <DependentUpon>padraoEnfermagem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="padraoEnfermagem.aspx.designer.cs">
+      <DependentUpon>padraoEnfermagem.aspx</DependentUpon>
+    </Compile>
     <Compile Include="padraoLogin.aspx.cs">
       <DependentUpon>padraoLogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -383,9 +393,7 @@
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="img\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.7.0.slim.min.map" />

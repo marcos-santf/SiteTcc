@@ -145,12 +145,15 @@ input {
     color: #707075;
     margin-top: 40px;
     transition: color 300ms;
+    cursor: pointer;
 }
 
+    /*#submit:hover {
+        background-color: #f2f2f2;
+    }*/
     #submit:focus {
         color: #f2f2f2;
     }
-
     #submit:active {
         color: #d0d0d2;
     }
@@ -159,19 +162,15 @@ input {
     color: #707075;
     margin-top: 15px;
     transition: color 300ms;
+    cursor: pointer;
 }
-
+    /*#cadastrar:hover {
+        background-color: #f2f2f2;
+    }*/
     #cadastrar:focus {
         color: #f2f2f2;
     }
-
     #cadastrar:active {
         color: #d0d0d2;
     }
-/*
-#errorPopupMessage {
-    color: #FF0000;
-    font-size: 14px;
-    line-height: 1.5;
-    margin: 40px;
-}*/
+

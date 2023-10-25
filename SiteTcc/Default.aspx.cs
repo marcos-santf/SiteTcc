@@ -15,10 +15,17 @@ namespace SiteTCC
         {
             if (Request.QueryString["Param1"] != null)
             {
-                string Param1 = string.Empty;
-                Param1 = clsCriptografia.Encrypt(Request.QueryString["Param2"], "Eita#$%Nois##", true);
+                if (Request.QueryString["Param6"] != null)
+                {
+                    DirecionaMenu();
+                }
+                else
+                {
+                    string Param1 = string.Empty;
+                    Param1 = clsCriptografia.Encrypt(Request.QueryString["Param2"], "Eita#$%Nois##", true);
 
-                ValidaDadosBanco(Request.QueryString["Param1"], Param1);
+                    ValidaDadosBanco(Request.QueryString["Param1"], Param1);
+                }
             }
         }
 
@@ -29,17 +36,17 @@ namespace SiteTCC
             string Param3 = string.Empty;
             string Param4 = string.Empty;
             string DirecionaPagina = string.Empty;
-
+            string ts = string.Empty;
             try
             {
                 DataSet ds = clsValidaDados.ValidaDados(cpf, senha);
 
                 if (ds.Tables[0].Rows.Count > 0)
                 {
-                    Param1 = HttpUtility.UrlEncode(clsCriptografia.Encrypt(Convert.ToInt32(ds.Tables[0].Rows[0]["cd_perfil"]).ToString(), "Eita#$%Nois##", true));
-                    Param2 = HttpUtility.UrlEncode(clsCriptografia.Encrypt(Convert.ToInt32(ds.Tables[0].Rows[0]["cd_usuario"]).ToString(), "Eita#$%Nois##", true));
-                    Param3 = HttpUtility.UrlEncode(clsCriptografia.Encrypt("designer", "Eita#$%Nois##", true));
-                    Param4 = HttpUtility.UrlEncode(clsCriptografia.Encrypt(cpf, "Eita#$%Nois##", true));
+                    Param1 = clsCriptografia.Encrypt(Convert.ToInt32(ds.Tables[0].Rows[0]["cd_perfil"]).ToString(), "Eita#$%Nois##", true);
+                    Param2 = clsCriptografia.Encrypt(Convert.ToInt32(ds.Tables[0].Rows[0]["cd_usuario"]).ToString(), "Eita#$%Nois##", true);
+                    Param3 = clsCriptografia.Encrypt("designer", "Eita#$%Nois##", true);
+                    Param4 = clsCriptografia.Encrypt(cpf, "Eita#$%Nois##", true);
 
                     DirecionaPagina = Convert.ToInt32(ds.Tables[0].Rows[0]["cd_perfil"]).ToString();
                 }
@@ -57,8 +64,24 @@ namespace SiteTCC
                 Response.Redirect("padraoLogin.aspx?P=" + "1");
             }
 
-            if(DirecionaPagina == "2")
-                Response.Redirect("padraoPaciente.aspx?Param1=" + Param1 + "&Param2=" + Param2 + "&Param3=" + Param3 + "&Param4=" + Param4);
+            ts = clsCriptografia.Encrypt(Param2, "Eita#$%Nois##", true);
+
+            if (DirecionaPagina == "2")
+                Response.Redirect("padraoPaciente.aspx?Param1=" + Param1 + "&Param2=" + Param2 + "&Param3=" + Param3 + "&Param4=" + Param4 + "&Param5=" + DirecionaPagina);
+            else if (DirecionaPagina == "3")
+                Response.Redirect("padraoEnfermagem.aspx?Param1=" + Param1 + "&Param2=" + Param2 + "&Param3=" + Param3 + "&Param4=" + Param4 + "&Param5=" + DirecionaPagina);
+        }
+
+        private void DirecionaMenu()
+        {
+            string DirecionaPagina = string.Empty;
+
+            DirecionaPagina = Request.QueryString["Param5"];
+
+            if (DirecionaPagina == "2")
+                Response.Redirect("padraoPaciente.aspx?Param1=" + Request.QueryString["Param1"] + "&Param2=" + Request.QueryString["Param2"] + "&Param3=" + Request.QueryString["Param3"] + "&Param4=" + Request.QueryString["Param4"] + "&Param5=" + Request.QueryString["Param5"]);
+            else if (DirecionaPagina == "3")
+                Response.Redirect("padraoEnfermagem.aspx?Param1=" + Request.QueryString["Param1"] + "&Param2=" + Request.QueryString["Param2"] + "&Param3=" + Request.QueryString["Param3"] + "&Param4=" + Request.QueryString["Param4"] + "&Param5=" + Request.QueryString["Param5"]);
         }
     }
 }
