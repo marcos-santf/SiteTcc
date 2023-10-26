@@ -32,7 +32,7 @@
                 <p><h4>Confirme a senha: </h4><input type="password" id="userConfSenha"  onblur="restoreDefaultText(this)" runat="server" /></p>
                 <p><h4>Lembrete Senha: </h4><input type="text" id="userLembreteSenha" onblur="restoreDefaultText(this)" runat="server" /></p>
             </section>
-            <section id="pnBotao" style="text-align: center; margin-top: 20px;">
+            <section id="pnBotao" runat="server" style="text-align: center; margin-top: 20px;">
                  <asp:Button ID="submitButton" runat="server" Text="Enviar Dados" OnClick="submitButton_Click" CssClass="action-button" />
             </section>
         </form>

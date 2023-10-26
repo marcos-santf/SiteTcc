@@ -48,15 +48,15 @@ ul {
     list-style-type: none;
 }
 
-ul li.item-menu {
+ul a.item-menu {
     transition: .2s;
 }
 
-    ul li.ativo {
+    ul a.ativo {
         background-color: #4F4F4F;
     }
 
-    ul li.item-menu:hover {
+    ul a.item-menu:hover {
         background: #4F4F4F;
     }
 
@@ -85,3 +85,4 @@ ul li.item-menu a .icon > i {
     font-size: 30px;
     margin-left: 5px;
 }
+

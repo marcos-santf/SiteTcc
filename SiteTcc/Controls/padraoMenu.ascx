@@ -23,38 +23,38 @@
         </div><!--btn-expandir-->
 
         <ul>
-            <li class="item-menu ativo">
-                <a href="#" type="submit" id="house">
+            <li class="item-menu">
+                <a href="#" class="item-menu" type="submit" id="home">
                     <span class="icon"><i class="bi bi-house-door"></i></span>
-                    <span class="txt-link">Home</span>
+                    <span class="txt-link">Início</span>
                 </a>
             </li>
             <li class="item-menu">
-                <a href="#">
+                <a href="#" class="item-menu" type="submit" id="exame">
                     <span class="icon"><i class="bi bi-file-earmark-medical"></i></span>
                     <span class="txt-link">Exames</span>
                 </a>
             </li>
             <li class="item-menu">
-                <a href="#">
+                <a href="#" class="item-menu" type="submit" id="agenda">
                     <span class="icon"><i class="bi bi-calendar3"></i></span>
                     <span class="txt-link">Agendar</span>
                 </a>
             </li>
             <li class="item-menu">
-                <a href="#">
+                <a href="#" class="item-menu" type="submit" id="config">
                     <span class="icon"><i class="bi bi-gear"></i></span>
                     <span class="txt-link">Configurações</span>
                 </a>
             </li>
             <li class="item-menu">
-                <a href="#">
+                <a href="#" class="item-menu" type="submit" id="conta">
                     <span class="icon"><i class="bi bi-person-circle"></i></span>
                     <span class="txt-link">Conta</span>
                 </a>
             </li>
             <li class="item-menu">
-                <a href="#" type="submit" id="sair">
+                <a href="#" class="item-menu" type="submit" id="sair">
                     <span class="icon"><i class="bi bi-arrow-left"></i></span>
                     <span class="txt-link">Sair</span>
                 </a>

@@ -26,6 +26,63 @@ namespace SiteTCC
                 pnAtendimento.Visible = false;
                 MenuControl.Visible = false;
             }
+
+            if (Request.QueryString["Param6"] == "home")
+            {
+                userName.Disabled = true;
+                userCpf.Disabled = true;
+                userRg.Disabled = true;
+                Date.Disabled = true;
+                userPhone.Disabled = true;
+                userEmail.Disabled = true;
+                userResponsavel.Disabled = true;
+
+                pnSenha.Visible = false;
+                pnAtendimento.Visible = false;
+                pnBotao.Visible = false;
+            }
+            else if (Request.QueryString["Param6"] == "conta")
+            {
+                pnAtendimento.Visible = false;
+            }
+        }
+
+        private void CarregaControle()
+        {
+            userDateOfBirth.Visible = false;
+            Date.Visible = true;
+            string Param2 = string.Empty;
+            int CodigoUsuario = int.MinValue;
+
+            Param2 = clsCriptografia.Decrypt(Request.QueryString["Param2"], "Eita#$%Nois##", true);
+
+            CodigoUsuario = Convert.ToInt32(Param2);
+
+            DataSet ds = clsPaciente.RetornaDadosPaciente(CodigoUsuario);
+
+            userName.Value = (string)ds.Tables[0].Rows[0]["ds_nome"];
+            userCpf.Value = (string)ds.Tables[0].Rows[0]["ds_cpf"];
+            userRg.Value = (string)ds.Tables[0].Rows[0]["ds_rg"];
+            DateTime dataNascimento = (DateTime)ds.Tables[0].Rows[0]["dt_nascimento"];
+            Date.Value = dataNascimento.ToString("dd/MM/yyyy");
+            userResponsavel.Value = ds.Tables[0].Rows[0]["ds_responsavel"] == DBNull.Value ? string.Empty : (string)ds.Tables[0].Rows[0]["ds_responsavel"];
+            userPhone.Value = ds.Tables[0].Rows[0]["ds_telefone"] == DBNull.Value ? string.Empty : (string)ds.Tables[0].Rows[0]["ds_telefone"];
+            userEmail.Value = ds.Tables[0].Rows[0]["ds_email"] == DBNull.Value ? string.Empty : (string)ds.Tables[0].Rows[0]["ds_email"];
+
+            //if(userName.Value != string.Empty)
+            //    userName.Disabled = true;
+            //if (userCpf.Value != string.Empty)
+            //    userCpf.Disabled = true;
+            //if (userRg.Value != string.Empty)
+            //    userRg.Disabled = true;
+            //if (Date.Value != string.Empty)
+            //    Date.Disabled = true;
+            //if (userPhone.Value != string.Empty)
+            //    userPhone.Disabled = true;
+            //if (userEmail.Value != string.Empty)
+            //    userEmail.Disabled = true;
+
+            //pnSenha.Visible = false;
         }
         protected void submitButton_Click(object sender, EventArgs e)
         {
@@ -92,44 +149,6 @@ namespace SiteTCC
                 EnviarDadosParaBanco(nomeCompleto, cpf, rg, dataNascimento, responsavel, telefone, email, senha, lembreteSenha);
             }
         }
-        private void CarregaControle()
-        {
-            userDateOfBirth.Visible = false;
-            Date.Visible = true;
-            string Param2 = string.Empty;
-            int CodigoUsuario = int.MinValue;
-
-            Param2 = clsCriptografia.Decrypt(Request.QueryString["Param2"], "Eita#$%Nois##", true);
-
-            CodigoUsuario = Convert.ToInt32(Param2);
-
-            DataSet ds = clsPaciente.RetornaDadosPaciente(CodigoUsuario);
-
-            userName.Value = (string)ds.Tables[0].Rows[0]["ds_nome"];
-            userCpf.Value = (string)ds.Tables[0].Rows[0]["ds_cpf"];
-            userRg.Value = (string)ds.Tables[0].Rows[0]["ds_rg"];
-            DateTime dataNascimento = (DateTime)ds.Tables[0].Rows[0]["dt_nascimento"];
-            Date.Value = dataNascimento.ToString("dd/MM/yyyy");
-            userResponsavel.Value = ds.Tables[0].Rows[0]["ds_responsavel"] == DBNull.Value  ? string.Empty : (string)ds.Tables[0].Rows[0]["ds_responsavel"];
-            userPhone.Value = ds.Tables[0].Rows[0]["ds_telefone"] == DBNull.Value ? string.Empty : (string)ds.Tables[0].Rows[0]["ds_telefone"];
-            userEmail.Value = ds.Tables[0].Rows[0]["ds_email"] == DBNull.Value ? string.Empty : (string)ds.Tables[0].Rows[0]["ds_email"];
-
-            if(userName.Value != string.Empty)
-                userName.Disabled = true;
-            if (userCpf.Value != string.Empty)
-                userCpf.Disabled = true;
-            if (userRg.Value != string.Empty)
-                userRg.Disabled = true;
-            if (Date.Value != string.Empty)
-                Date.Disabled = true;
-            if (userPhone.Value != string.Empty)
-                userPhone.Disabled = true;
-            if (userEmail.Value != string.Empty)
-                userEmail.Disabled = true;
-
-            pnSenha.Visible = false;
-        }
-
         private void EnviarDadosParaBanco(string nomeCompleto, string cpf, string rg, string dataNascimento,string responsavel,string telefone,string email,string senha, string lembreteSenha)
         {
             clsValidaDados validaDados = new clsValidaDados();
