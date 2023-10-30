@@ -70,6 +70,8 @@ namespace SiteTCC
                 Response.Redirect("padraoPaciente.aspx?Param1=" + Param1 + "&Param2=" + Param2 + "&Param3=" + Param3 + "&Param4=" + Param4 + "&Param5=" + DirecionaPagina + "&Param6=home");
             else if (DirecionaPagina == "3")
                 Response.Redirect("padraoEnfermagem.aspx?Param1=" + Param1 + "&Param2=" + Param2 + "&Param3=" + Param3 + "&Param4=" + Param4 + "&Param5=" + DirecionaPagina + "&Param6=home");
+            else if (DirecionaPagina == "4")
+                Response.Redirect("padraoMedico.aspx?Param1=" + Param1 + "&Param2=" + Param2 + "&Param3=" + Param3 + "&Param4=" + Param4 + "&Param5=" + DirecionaPagina + "&Param6=home");
         }
 
         private void DirecionaMenu()
@@ -84,6 +86,8 @@ namespace SiteTCC
                     Response.Redirect("padraoPaciente.aspx?Param1=" + Request.QueryString["Param1"] + "&Param2=" + Request.QueryString["Param2"] + "&Param3=" + Request.QueryString["Param3"] + "&Param4=" + Request.QueryString["Param4"] + "&Param5=" + Request.QueryString["Param5"] + "&Param6=home");
                 else if (DirecionaPagina == "3")
                     Response.Redirect("padraoEnfermagem.aspx?Param1=" + Request.QueryString["Param1"] + "&Param2=" + Request.QueryString["Param2"] + "&Param3=" + Request.QueryString["Param3"] + "&Param4=" + Request.QueryString["Param4"] + "&Param5=" + Request.QueryString["Param5"] + "&Param6=home");
+                else if (DirecionaPagina == "4")
+                    Response.Redirect("padraoMedico.aspx?Param1=" + Request.QueryString["Param1"] + "&Param2=" + Request.QueryString["Param2"] + "&Param3=" + Request.QueryString["Param3"] + "&Param4=" + Request.QueryString["Param4"] + "&Param5=" + Request.QueryString["Param5"] + "&Param6=home");
             }
             else if (Request.QueryString["Param6"] == "conta")
             {
@@ -91,6 +95,8 @@ namespace SiteTCC
                     Response.Redirect("padraoPaciente.aspx?Param1=" + Request.QueryString["Param1"] + "&Param2=" + Request.QueryString["Param2"] + "&Param3=" + Request.QueryString["Param3"] + "&Param4=" + Request.QueryString["Param4"] + "&Param5=" + Request.QueryString["Param5"] + "&Param6=conta");
                 else if (DirecionaPagina == "3")
                     Response.Redirect("padraoEnfermagem.aspx?Param1=" + Request.QueryString["Param1"] + "&Param2=" + Request.QueryString["Param2"] + "&Param3=" + Request.QueryString["Param3"] + "&Param4=" + Request.QueryString["Param4"] + "&Param5=" + Request.QueryString["Param5"] + "&Param6=conta");
+                else if (DirecionaPagina == "4")
+                    Response.Redirect("padraoMedico.aspx?Param1=" + Request.QueryString["Param1"] + "&Param2=" + Request.QueryString["Param2"] + "&Param3=" + Request.QueryString["Param3"] + "&Param4=" + Request.QueryString["Param4"] + "&Param5=" + Request.QueryString["Param5"] + "&Param6=conta");
             }
         }
     }

@@ -12,6 +12,7 @@ using Newtonsoft.Json;
 using SiteTCC.Classes;
 using Microsoft.IdentityModel.Tokens;
 using System.Globalization;
+using SiteTcc.Classes;
 
 namespace SiteTCC
 {
@@ -43,7 +44,9 @@ namespace SiteTCC
             }
             else if (Request.QueryString["Param6"] == "conta")
             {
+                submitButton.Text = "Salvar";
                 pnAtendimento.Visible = false;
+                pnSenha.Visible = false;
             }
         }
 
@@ -58,7 +61,7 @@ namespace SiteTCC
 
             CodigoUsuario = Convert.ToInt32(Param2);
 
-            DataSet ds = clsPaciente.RetornaDadosPaciente(CodigoUsuario);
+            DataSet ds = clsUsuario.RetornaDadosUsuario(CodigoUsuario);
 
             userName.Value = (string)ds.Tables[0].Rows[0]["ds_nome"];
             userCpf.Value = (string)ds.Tables[0].Rows[0]["ds_cpf"];
@@ -68,21 +71,6 @@ namespace SiteTCC
             userResponsavel.Value = ds.Tables[0].Rows[0]["ds_responsavel"] == DBNull.Value ? string.Empty : (string)ds.Tables[0].Rows[0]["ds_responsavel"];
             userPhone.Value = ds.Tables[0].Rows[0]["ds_telefone"] == DBNull.Value ? string.Empty : (string)ds.Tables[0].Rows[0]["ds_telefone"];
             userEmail.Value = ds.Tables[0].Rows[0]["ds_email"] == DBNull.Value ? string.Empty : (string)ds.Tables[0].Rows[0]["ds_email"];
-
-            //if(userName.Value != string.Empty)
-            //    userName.Disabled = true;
-            //if (userCpf.Value != string.Empty)
-            //    userCpf.Disabled = true;
-            //if (userRg.Value != string.Empty)
-            //    userRg.Disabled = true;
-            //if (Date.Value != string.Empty)
-            //    Date.Disabled = true;
-            //if (userPhone.Value != string.Empty)
-            //    userPhone.Disabled = true;
-            //if (userEmail.Value != string.Empty)
-            //    userEmail.Disabled = true;
-
-            //pnSenha.Visible = false;
         }
         protected void submitButton_Click(object sender, EventArgs e)
         {
@@ -95,9 +83,6 @@ namespace SiteTCC
             string responsavel = userResponsavel.Value;
             string telefone = userPhone.Value;
             string email = userEmail.Value;
-            string senha = userSenha.Value;
-            string confirmaSenha = userConfSenha.Value;
-            string lembreteSenha = userLembreteSenha.Value;
 
             if (dataNascimento != string.Empty)
             {
@@ -109,46 +94,94 @@ namespace SiteTCC
                 }
             }
 
-            if (nomeCompleto == string.Empty)
+            if (Request.QueryString["Param6"] != "conta")
             {
-                validaDados.ClientMessage(this, "Favor, informar o Nome.");
-                return;
+                string senha = userSenha.Value;
+                string confirmaSenha = userConfSenha.Value;
+                string lembreteSenha = userLembreteSenha.Value;
+
+                if (nomeCompleto == string.Empty)
+                {
+                    validaDados.ClientMessage(this, "Favor, informar o Nome.");
+                    return;
+                }
+                else if (cpf == string.Empty)
+                {
+                    validaDados.ClientMessage(this, "Favor, informar o CPF.");
+                    return;
+                }
+                else if (rg == string.Empty)
+                {
+                    validaDados.ClientMessage(this, "Favor, informar o RG.");
+                    return;
+                }
+                else if (dataNascimento == string.Empty)
+                {
+                    validaDados.ClientMessage(this, "Favor, informar a Data de Nascimento.");
+                    return;
+                }
+                else if (senha == string.Empty)
+                {
+                    validaDados.ClientMessage(this, "Favor, informar a Senha.");
+                    return;
+                }
+                else if (senha != confirmaSenha)
+                {
+                    validaDados.ClientMessage(this, "Senhas diferentes.");
+                    return;
+                }
+                else if (lembreteSenha == string.Empty)
+                {
+                    validaDados.ClientMessage(this, "Favor, informar o Lembrete para Senha.");
+                    return;
+                }
+                else
+                {
+                    EnviarDadosParaBanco(nomeCompleto, cpf, rg, dataNascimento, responsavel, telefone, email, senha, lembreteSenha);
+                }
             }
-            else if (cpf == string.Empty)
+            else if (Request.QueryString["Param6"] == "conta")
             {
-                validaDados.ClientMessage(this, "Favor, informar o CPF.");
-                return;
-            }
-            else if (rg == string.Empty)
-            {
-                validaDados.ClientMessage(this, "Favor, informar o RG.");
-                return;
-            }
-            else if (dataNascimento == string.Empty)
-            {
-                validaDados.ClientMessage(this, "Favor, informar a Data de Nascimento.");
-                return;
-            }
-            else if (senha == string.Empty)
-            {
-                validaDados.ClientMessage(this, "Favor, informar a Senha.");
-                return;
-            }
-            else if (lembreteSenha == string.Empty)
-            {
-                validaDados.ClientMessage(this, "Favor, informar o Lembrete para Senha.");
-                return;
-            }
-            else if (senha != confirmaSenha)
-            {
-                validaDados.ClientMessage(this, "Senhas diferentes.");
-                return;
-            }
-            else
-            {
-                EnviarDadosParaBanco(nomeCompleto, cpf, rg, dataNascimento, responsavel, telefone, email, senha, lembreteSenha);
+                dataNascimento = Date.Value;
+                string formatoOriginal = "dd/MM/yyyy";
+                DateTime data = DateTime.ParseExact(dataNascimento, formatoOriginal, null);
+                dataNascimento = data.ToString("yyyy/MM/dd");
+
+                string userEmailValue = userEmail.Value;
+
+                string Param2 = string.Empty;
+                int CodigoUsuario = int.MinValue;
+                Param2 = clsCriptografia.Decrypt(Request.QueryString["Param2"], "Eita#$%Nois##", true);
+
+                CodigoUsuario = Convert.ToInt32(Param2);
+
+                if (nomeCompleto == string.Empty)
+                {
+                    validaDados.ClientMessage(this, "Favor, informar o Nome.");
+                    return;
+                }
+                else if (cpf == string.Empty)
+                {
+                    validaDados.ClientMessage(this, "Favor, informar o CPF.");
+                    return;
+                }
+                else if (rg == string.Empty)
+                {
+                    validaDados.ClientMessage(this, "Favor, informar o RG.");
+                    return;
+                }
+                else if (dataNascimento == string.Empty)
+                {
+                    validaDados.ClientMessage(this, "Favor, informar a Data de Nascimento.");
+                    return;
+                }
+                else
+                {
+                    AlteraDadosBanco(nomeCompleto, cpf, rg, dataNascimento, responsavel, telefone, email, CodigoUsuario);
+                }
             }
         }
+
         private void EnviarDadosParaBanco(string nomeCompleto, string cpf, string rg, string dataNascimento,string responsavel,string telefone,string email,string senha, string lembreteSenha)
         {
             clsValidaDados validaDados = new clsValidaDados();
@@ -183,6 +216,44 @@ namespace SiteTCC
                 Response.StatusCode = 200;
                 Response.Write("Dados inseridos com sucesso.");
                 Response.Redirect("padraoLogin.aspx");
+            }
+            catch (Exception ex)
+            {
+                validaDados.ClientMessage(this, ex.Message);
+                return;
+            }
+        }
+
+        private void AlteraDadosBanco(string nomeCompleto, string cpf, string rg, string dataNascimento, string responsavel, string telefone, string email, int CodigoUsuario)
+        {
+            clsValidaDados validaDados = new clsValidaDados();
+
+            try
+            {
+                // Chama a stored procedure para inserir os dados no banco de dados
+                using (SqlConnection connection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["MODELOConnectionString"].ConnectionString))
+                {
+                    // Abre a conexão
+                    connection.Open();
+
+                    // Criar o comando para a stored procedure
+                    using (SqlCommand cmd = new SqlCommand("pr_altera_paciente", connection))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@ds_nome", nomeCompleto);
+                        cmd.Parameters.AddWithValue("@ds_rg", rg);
+                        cmd.Parameters.AddWithValue("@ds_cpf", cpf);
+                        cmd.Parameters.AddWithValue("@ds_telefone", telefone);
+                        cmd.Parameters.AddWithValue("@dt_nascimento", dataNascimento);
+                        cmd.Parameters.AddWithValue("@ds_responsavel", responsavel);
+                        cmd.Parameters.AddWithValue("@ds_email", email);
+                        cmd.Parameters.AddWithValue("@CodigoUsuario", CodigoUsuario);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                Response.StatusCode = 200;
+                validaDados.ClientMessage(this,"Dados inseridos com sucesso.");
+                CarregaControle();
             }
             catch (Exception ex)
             {

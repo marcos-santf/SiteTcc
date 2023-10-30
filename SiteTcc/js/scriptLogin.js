@@ -37,7 +37,6 @@ function redirecionarParaCadastro() {
 document.getElementById('cadastrar').addEventListener('click', redirecionarParaCadastro);
 
 function validaDadosAcesso() {
-    debugger
     var cpf = document.getElementById('cpf').value;
     var password = document.getElementById('password').value;
 

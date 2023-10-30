@@ -11,11 +11,11 @@ using System.Web.Script.Serialization;
 using Newtonsoft.Json;
 using System.Web.Services.Description;
 
-namespace SiteTCC.Classes
+namespace SiteTcc.Classes
 {
-    public class clsPaciente
+    public class clsUsuario
     {
-        public static DataSet RetornaDadosPaciente(int CodigoUsuario)
+        public static DataSet RetornaDadosUsuario(int CodigoUsuario)
         {
             DataSet dataSet = new DataSet();
 
@@ -28,7 +28,7 @@ namespace SiteTCC.Classes
                     connection.Open();
 
                     // Criar o comando para a stored procedure
-                    using (SqlCommand cmd = new SqlCommand("pr_retorna_dados_paciente", connection))
+                    using (SqlCommand cmd = new SqlCommand("pr_retorna_dados_usuario", connection))
                     {
                         try
                         {

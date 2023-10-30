@@ -253,6 +253,7 @@
     <Content Include="Controls\padraoMenu.ascx" />
     <Content Include="css\styleEnfermagem.css" />
     <Content Include="css\styleLogin.css" />
+    <Content Include="css\styleMedico.css" />
     <Content Include="css\styleMenu.css" />
     <Content Include="css\styleMenuCanto.css" />
     <Content Include="css\stylePaciente.css" />
@@ -265,6 +266,7 @@
     <Content Include="js\scriptMenuCanto.js" />
     <Content Include="padraoEnfermagem.aspx" />
     <Content Include="padraoLogin.aspx" />
+    <Content Include="padraoMedico.aspx" />
     <Content Include="padraoPaciente.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -332,7 +334,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Classes\clsCriptografia.cs" />
-    <Compile Include="Classes\clsPaciente.cs" />
+    <Compile Include="Classes\clsUsuario.cs" />
     <Compile Include="Classes\clsValidaDados.cs" />
     <Compile Include="Controls\padraoMenu.ascx.cs">
       <DependentUpon>padraoMenu.ascx</DependentUpon>
@@ -364,6 +366,13 @@
     </Compile>
     <Compile Include="padraoLogin.aspx.designer.cs">
       <DependentUpon>padraoLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="padraoMedico.aspx.cs">
+      <DependentUpon>padraoMedico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="padraoMedico.aspx.designer.cs">
+      <DependentUpon>padraoMedico.aspx</DependentUpon>
     </Compile>
     <Compile Include="padraoPaciente.aspx.cs">
       <DependentUpon>padraoPaciente.aspx</DependentUpon>

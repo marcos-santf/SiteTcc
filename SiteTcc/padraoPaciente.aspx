@@ -13,24 +13,25 @@
 </head>
 <body>
     <header>
-        <h1>Triagem Rápida: Agilizador de Atendimento de Saúde</h1>
+        <h1>Dados</h1>
     </header>
     <section id="pnPaciente" runat="server" visible="true">
         <section id="pnTitulo" style="text-align: center;">
              <h2>Informações do Paciente</h2>
         </section>
+        <br>
         <form id="userForm" runat="server">
-            <p><h4>Nome Completo: </h4><input type="text" id="userName" onblur="restoreDefaultText(this)" runat="server" /></p>
-            <p><h4>CPF: </h4><input type="text" id="userCpf" onblur="restoreDefaultText(this)" runat="server" oninput="this.value = this.value.replace(/\D/g, '')" /></p>
-            <p><h4>RG: </h4><input type="text" id="userRg" onblur="restoreDefaultText(this)" runat="server" /></p>
+            <p><h4>Nome Completo: </h4><input type="text" id="userName" runat="server" /></p>
+            <p><h4>CPF: </h4><input type="text" id="userCpf" runat="server" oninput="this.value = this.value.replace(/\D/g, '')" /></p>
+            <p><h4>RG: </h4><input type="text" id="userRg" runat="server" /></p>
             <p><h4>Data de Nascimento: </h4><input type="date" id="userDateOfBirth" runat="server" /><input type="text" id="Date" runat="server" visible="false"/></p>
-            <p><h4>Responsável: </h4><input type="text" id="userResponsavel" onblur="restoreDefaultText(this)" runat="server" /></p>
+            <p><h4>Responsável: </h4><input type="text" id="userResponsavel" runat="server" /></p>
             <p><h4>Telefone: </h4><input type="text" id="userPhone" runat="server" /></p>
-            <p><h4>E-mail: </h4><input type="text" id="userEmail"  onblur="restoreDefaultText(this)" runat="server" /></p>
+            <p><h4>E-mail: </h4><input type="text" id="userEmail"  runat="server" /></p>
             <section id="pnSenha" runat="server">
-                <p><h4>Senha: </h4><input type="password" id="userSenha"  onblur="restoreDefaultText(this)" runat="server" /></p>
-                <p><h4>Confirme a senha: </h4><input type="password" id="userConfSenha"  onblur="restoreDefaultText(this)" runat="server" /></p>
-                <p><h4>Lembrete Senha: </h4><input type="text" id="userLembreteSenha" onblur="restoreDefaultText(this)" runat="server" /></p>
+                <p><h4>Senha: </h4><input type="password" id="userSenha" runat="server" /></p>
+                <p><h4>Confirme a senha: </h4><input type="password" id="userConfSenha" runat="server" /></p>
+                <p><h4>Lembrete Senha: </h4><input type="text" id="userLembreteSenha" runat="server" /></p>
             </section>
             <section id="pnBotao" runat="server" style="text-align: center; margin-top: 20px;">
                  <asp:Button ID="submitButton" runat="server" Text="Enviar Dados" OnClick="submitButton_Click" CssClass="action-button" />
