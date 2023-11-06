@@ -39,13 +39,11 @@ namespace SiteTCC
                 userResponsavel.Disabled = true;
 
                 pnSenha.Visible = false;
-                pnAtendimento.Visible = false;
                 pnBotao.Visible = false;
             }
             else if (Request.QueryString["Param6"] == "conta")
             {
                 submitButton.Text = "Salvar";
-                pnAtendimento.Visible = false;
                 pnSenha.Visible = false;
             }
         }
@@ -57,7 +55,7 @@ namespace SiteTCC
             string Param2 = string.Empty;
             int CodigoUsuario = int.MinValue;
 
-            Param2 = clsCriptografia.Decrypt(Request.QueryString["Param2"], "Eita#$%Nois##", true);
+            Param2 = Request.QueryString["Param5"];
 
             CodigoUsuario = Convert.ToInt32(Param2);
 
@@ -71,6 +69,7 @@ namespace SiteTCC
             userResponsavel.Value = ds.Tables[0].Rows[0]["ds_responsavel"] == DBNull.Value ? string.Empty : (string)ds.Tables[0].Rows[0]["ds_responsavel"];
             userPhone.Value = ds.Tables[0].Rows[0]["ds_telefone"] == DBNull.Value ? string.Empty : (string)ds.Tables[0].Rows[0]["ds_telefone"];
             userEmail.Value = ds.Tables[0].Rows[0]["ds_email"] == DBNull.Value ? string.Empty : (string)ds.Tables[0].Rows[0]["ds_email"];
+            idSenha.Text = ds.Tables[1].Rows[0]["nr_senha"] == DBNull.Value ? string.Empty : (string)ds.Tables[1].Rows[0]["nr_senha"]; ;
         }
         protected void submitButton_Click(object sender, EventArgs e)
         {
@@ -151,7 +150,7 @@ namespace SiteTCC
 
                 string Param2 = string.Empty;
                 int CodigoUsuario = int.MinValue;
-                Param2 = clsCriptografia.Decrypt(Request.QueryString["Param2"], "Eita#$%Nois##", true);
+                Param2 = Request.QueryString["Param5"];
 
                 CodigoUsuario = Convert.ToInt32(Param2);
 
@@ -192,7 +191,7 @@ namespace SiteTCC
                 Password = clsCriptografia.Encrypt(senha, "Eita#$%Nois##", true);
 
                 // Chama a stored procedure para inserir os dados no banco de dados
-                using (SqlConnection connection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["MODELOConnectionString"].ConnectionString))
+                using (SqlConnection connection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["HOSPITALConnectionString"].ConnectionString))
                 {
                     // Abre a conexão
                     connection.Open();
@@ -215,7 +214,7 @@ namespace SiteTCC
                 }
                 Response.StatusCode = 200;
                 Response.Write("Dados inseridos com sucesso.");
-                Response.Redirect("padraoLogin.aspx");
+                Response.Redirect("Default.aspx?Param1=" + cpf + "&Param2=" + senha + "&Param3=0");
             }
             catch (Exception ex)
             {
@@ -231,7 +230,7 @@ namespace SiteTCC
             try
             {
                 // Chama a stored procedure para inserir os dados no banco de dados
-                using (SqlConnection connection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["MODELOConnectionString"].ConnectionString))
+                using (SqlConnection connection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["HOSPITALConnectionString"].ConnectionString))
                 {
                     // Abre a conexão
                     connection.Open();

@@ -50,20 +50,20 @@ function redirecionarParaHome() {
 
 document.getElementById('home').addEventListener('click', redirecionarParaHome);
 
-function redirecionarParaConta() {
-    var urlParams = new URLSearchParams(window.location.search);
-    var Param1 = urlParams.get("Param1");
-    var Param2 = urlParams.get("Param2");
-    var Param3 = urlParams.get("Param3");
-    var Param4 = urlParams.get("Param4");
-    var Param5 = urlParams.get("Param5");
+//function redirecionarParaConta() {
+//    var urlParams = new URLSearchParams(window.location.search);
+//    var Param1 = urlParams.get("Param1");
+//    var Param2 = urlParams.get("Param2");
+//    var Param3 = urlParams.get("Param3");
+//    var Param4 = urlParams.get("Param4");
+//    var Param5 = urlParams.get("Param5");
 
-    var novoURL = 'Default.aspx?Param1=' + Param1 + '&Param2=' + Param2 + '&Param3=' + Param3 + '&Param4=' + Param4 + '&Param5=' + Param5 + '&Param6=conta';
+//    var novoURL = 'Default.aspx?Param1=' + Param1 + '&Param2=' + Param2 + '&Param3=' + Param3 + '&Param4=' + Param4 + '&Param5=' + Param5 + '&Param6=conta';
 
-    window.location.href = novoURL;
-}
+//    window.location.href = novoURL;
+//}
 
-document.getElementById('conta').addEventListener('click', redirecionarParaConta);
+//document.getElementById('conta').addEventListener('click', redirecionarParaConta);
 
 function Sair() {
     localStorage.clear();

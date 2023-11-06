@@ -22,7 +22,7 @@ namespace SiteTcc.Classes
             try
             {
                 // Chama a stored procedure para inserir os dados no banco de dados
-                using (SqlConnection connection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["MODELOConnectionString"].ConnectionString))
+                using (SqlConnection connection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["HOSPITALConnectionString"].ConnectionString))
                 {
                     // Abre a conexão
                     connection.Open();

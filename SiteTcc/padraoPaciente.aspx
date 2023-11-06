@@ -12,15 +12,25 @@
      <uc:Menu runat="server" ID="MenuControl"/>
 </head>
 <body>
-    <header>
-        <h1>Dados</h1>
-    </header>
-    <section id="pnPaciente" runat="server" visible="true">
-        <section id="pnTitulo" style="text-align: center;">
-             <h2>Informações do Paciente</h2>
-        </section>
-        <br>
-        <form id="userForm" runat="server">
+    <form id="userForm" runat="server">
+        <header>
+            <h1>Dados</h1>
+        </header>
+        <section id="pnAtendimento" runat="server" visible="true">
+            <section id="pnTituloSenha" style="text-align: center;">
+                 <h2>SENHA</h2>
+            </section>
+            
+            <section id="pnGeraSenha" runat="server" style="text-align: center; margin-top: 20px;">
+                <asp:Label ID="idSenha" Text ="" runat="server"></asp:Label>
+            </section>
+         </section>
+
+        <section id="pnPaciente" runat="server" visible="true">
+            <section id="pnTitulo" style="text-align: center;">
+                 <h2>Informações do Paciente</h2>
+            </section>
+            <br>
             <p><h4>Nome Completo: </h4><input type="text" id="userName" runat="server" /></p>
             <p><h4>CPF: </h4><input type="text" id="userCpf" runat="server" oninput="this.value = this.value.replace(/\D/g, '')" /></p>
             <p><h4>RG: </h4><input type="text" id="userRg" runat="server" /></p>
@@ -34,19 +44,10 @@
                 <p><h4>Lembrete Senha: </h4><input type="text" id="userLembreteSenha" runat="server" /></p>
             </section>
             <section id="pnBotao" runat="server" style="text-align: center; margin-top: 20px;">
-                 <asp:Button ID="submitButton" runat="server" Text="Enviar Dados" OnClick="submitButton_Click" CssClass="action-button" />
+                    <asp:Button ID="submitButton" runat="server" Text="Enviar Dados" OnClick="submitButton_Click" CssClass="action-button" />
             </section>
-        </form>
-    </section>
-    <section id="pnAtendimento" runat="server" visible="true">
-        <h2>Atendimentos Anteriores</h2>
-        <ul id="previousAppointments">
-            <li>Atendimento 1 - Data: 01/09/2023</li>
-            <li>Atendimento 2 - Data: 15/08/2023</li>
-            <li>Atendimento 3 - Data: 30/07/2023</li>
-        </ul>
-    </section>
-
+        </section>
+    </form>
     <script>
         function clearDefaultText(inputElement) {
             if (inputElement.value === inputElement.defaultValue) {

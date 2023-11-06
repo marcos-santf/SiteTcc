@@ -31,6 +31,16 @@ h2 {
     color: #4F4F4F;
 }
 
+section[id="pnGeraSenha"] {
+    color: #808080;
+    margin-block-start: 0px;
+    margin-block-end: 5px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    font-size: 30px;
+}
+
 h4 {
     color: #808080;
     margin-block-start: 0px;
@@ -87,20 +97,18 @@ input[type="date"] {
     cursor: pointer;
 }
 
-/* Estilos para a lista de atendimentos anteriores */
-#previousAppointments {
-    list-style-type: none;
-    padding: 0;
-}
-
-    #previousAppointments li {
-        margin-bottom: 10px;
-    }
-
 input[type="text"][id="userLembreteSenha"] {
     width: 30%;
     padding: 8px;
     margin-bottom: 1px;
     border: 1px solid #ccc;
     border-radius: 5px;
+}
+
+input[type="text"][id="idSenhaGerada"] {
+    width: 30%;
+    padding: 8px;
+    margin-bottom: 1px;
+    border: 1px solid #ccc;
+    border-radius: 105px;
 }

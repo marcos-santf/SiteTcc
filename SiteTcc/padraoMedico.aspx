@@ -56,7 +56,6 @@
         <h2>Informações da Enfermeira</h2>
         <br>
         <p><h4>COREN: <input type="text" id="userCoren" runat="server"></p>
-        <p><h4>ID do Usuário: <input type="text" id="userId" runat="server"></p>
         <p><h4>Nome Completo: <input type="text" id="userName" runat="server"></p>
     </section>
     <form id="userForm" runat="server">

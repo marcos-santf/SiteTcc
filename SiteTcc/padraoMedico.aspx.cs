@@ -18,6 +18,15 @@ namespace SiteTcc
         {
             if (Request.QueryString["P"] != "1")
                 CarregaControle();
+
+            doctorName.Disabled = true;
+            crm.Disabled = true;
+            patientName.Disabled = true;
+            patientCpf.Disabled = true;
+            patientPhone.Disabled = true;
+            patientEmail.Disabled = true;
+            userCoren.Disabled = true;
+            userName.Disabled = true;
         }
 
         private void CarregaControle()
@@ -25,11 +34,14 @@ namespace SiteTcc
             string Param2 = string.Empty;
             int CodigoUsuario = int.MinValue;
 
-            Param2 = clsCriptografia.Decrypt(Request.QueryString["Param2"], "Eita#$%Nois##", true);
+            Param2 = Request.QueryString["Param5"];
 
             CodigoUsuario = Convert.ToInt32(Param2);
 
             DataSet ds = clsUsuario.RetornaDadosUsuario(CodigoUsuario);
+
+            doctorName.Value = (string)ds.Tables[0].Rows[0]["ds_nome"];
+            crm.Value = (string)ds.Tables[0].Rows[0]["ds_crm"];
         }
 
         protected void submitButton_Click(object sender, EventArgs e)

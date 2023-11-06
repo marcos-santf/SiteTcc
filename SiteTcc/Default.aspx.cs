@@ -36,6 +36,7 @@ namespace SiteTCC
             string Param3 = string.Empty;
             string Param4 = string.Empty;
             string DirecionaPagina = string.Empty;
+            string CodigoUsuario = string.Empty;
             string ts = string.Empty;
             try
             {
@@ -49,6 +50,7 @@ namespace SiteTCC
                     Param4 = clsCriptografia.Encrypt(cpf, "Eita#$%Nois##", true);
 
                     DirecionaPagina = Convert.ToInt32(ds.Tables[0].Rows[0]["cd_perfil"]).ToString();
+                    CodigoUsuario = Convert.ToInt32(ds.Tables[0].Rows[0]["cd_usuario"]).ToString();
                 }
                 else
                 {
@@ -67,11 +69,11 @@ namespace SiteTCC
             ts = clsCriptografia.Encrypt(Param2, "Eita#$%Nois##", true);
 
             if (DirecionaPagina == "2")
-                Response.Redirect("padraoPaciente.aspx?Param1=" + Param1 + "&Param2=" + Param2 + "&Param3=" + Param3 + "&Param4=" + Param4 + "&Param5=" + DirecionaPagina + "&Param6=home");
+                Response.Redirect("padraoPaciente.aspx?Param1=" + Param1 + "&Param2=" + Param2 + "&Param3=" + Param3 + "&Param4=" + Param4 + "&Param5=" + CodigoUsuario + "&Param6=home");
             else if (DirecionaPagina == "3")
-                Response.Redirect("padraoEnfermagem.aspx?Param1=" + Param1 + "&Param2=" + Param2 + "&Param3=" + Param3 + "&Param4=" + Param4 + "&Param5=" + DirecionaPagina + "&Param6=home");
+                Response.Redirect("padraoEnfermagem.aspx?Param1=" + Param1 + "&Param2=" + Param2 + "&Param3=" + Param3 + "&Param4=" + Param4 + "&Param5=" + CodigoUsuario + "&Param6=home");
             else if (DirecionaPagina == "4")
-                Response.Redirect("padraoMedico.aspx?Param1=" + Param1 + "&Param2=" + Param2 + "&Param3=" + Param3 + "&Param4=" + Param4 + "&Param5=" + DirecionaPagina + "&Param6=home");
+                Response.Redirect("padraoMedico.aspx?Param1=" + Param1 + "&Param2=" + Param2 + "&Param3=" + Param3 + "&Param4=" + Param4 + "&Param5=" + CodigoUsuario + "&Param6=home");
         }
 
         private void DirecionaMenu()

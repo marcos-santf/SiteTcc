@@ -41,18 +41,18 @@
                     <span class="txt-link">Agendar</span>
                 </a>
             </li>
-            <li class="item-menu">
-                <a href="#" class="item-menu" type="submit" id="config">
+           <%-- <li class="item-menu">
+                <a href="#" class="item-menu" type="submit" id="config" visible="false">
                     <span class="icon"><i class="bi bi-gear"></i></span>
                     <span class="txt-link">Configurações</span>
                 </a>
             </li>
             <li class="item-menu">
-                <a href="#" class="item-menu" type="submit" id="conta">
+                <a href="#" class="item-menu" type="submit" id="conta" visible="false">
                     <span class="icon"><i class="bi bi-person-circle"></i></span>
                     <span class="txt-link">Conta</span>
                 </a>
-            </li>
+            </li>--%>
             <li class="item-menu">
                 <a href="#" class="item-menu" type="submit" id="sair">
                     <span class="icon"><i class="bi bi-arrow-left"></i></span>
