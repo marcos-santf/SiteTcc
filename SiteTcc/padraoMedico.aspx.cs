@@ -47,6 +47,8 @@ namespace SiteTcc
 
             DataSet ds = clsUsuario.RetornaDadosUsuario(CodigoUsuario);
 
+            radioOptions.RepeatDirection = RepeatDirection.Horizontal;
+
             doctorName.Value = (string)ds.Tables[0].Rows[0]["ds_nome"];
             crm.Value = (string)ds.Tables[1].Rows[0]["ds_crm"];
 
@@ -64,7 +66,10 @@ namespace SiteTcc
                 userCoren.Value = ds.Tables[2].Rows[0]["ds_coren"] == DBNull.Value ? string.Empty : (string)ds.Tables[2].Rows[0]["ds_coren"];
             }
             else
+            {
                 pnBotao.Visible = false;
+                radioOptions.Visible = false;
+            }
         }
 
         protected void submitButton_Click(object sender, EventArgs e)
@@ -84,10 +89,12 @@ namespace SiteTcc
             string cdExame = ds.Tables[2].Rows[0]["cd_exame"].ToString();
             string prioridade = ds.Tables[2].Rows[0]["ind_prioridade"].ToString();
 
-            EnviarDadosPaciente(cdExame, diagnosticoMed, prescMed, obsMed, prioridade);
+            int ind_triagem = Convert.ToInt32(radioOptions.SelectedValue);
+
+            EnviarDadosPaciente(cdExame, diagnosticoMed, prescMed, obsMed, prioridade, ind_triagem);
         }
 
-        private void EnviarDadosPaciente(string cdExame, string diagnosticoMed, string prescMed, string obsMed,string prioridade)
+        private void EnviarDadosPaciente(string cdExame, string diagnosticoMed, string prescMed, string obsMed,string prioridade, int ind_triagem)
         {
             clsValidaDados validaDados = new clsValidaDados();
 
@@ -108,6 +115,7 @@ namespace SiteTcc
                         cmd.Parameters.AddWithValue("@ds_prescricao_medica", prescMed);
                         cmd.Parameters.AddWithValue("@ds_observacao_medica", prioridade);
                         cmd.Parameters.AddWithValue("@ind_prioridade", prioridade);
+                        cmd.Parameters.AddWithValue("@ind_etapa_triagem", ind_triagem);
                         cmd.ExecuteNonQuery();
                     }
                 }

@@ -82,11 +82,12 @@ input[type="text"] {
     }
 }
 
-.horizontal-radio {
-    display: block;
-    text-align:center;
+.horizontal-radio label {
+    display: inline-block;
+    margin-right: 49px;
 }
 
-    .horizontal-radio label {
-        margin-right: 53px;
-    }
+.horizontal-radio input[type="radio"] {
+    margin-right: 5px;
+    text-align: center;
+}

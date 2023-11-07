@@ -68,20 +68,13 @@
             <br>
             <br>
 
-            <div class="horizontal-radio" runat="server">
-                <label>
-                    <input type="radio" name="radioOption" value="3"> Encaminhamento
-                </label>
-                <label>
-                    <input type="radio" name="radioOption" value="5"> Exames Diagnósticos
-                </label>
-                <label>
-                    <input type="radio" name="radioOption" value="7"> Encaminhamento Especializado
-                </label>
-                <label>
-                    <input type="radio" name="radioOption" checked="checked" value="9"> Alta
-                </label>
-            </div>
+           <asp:RadioButtonList ID="radioOptions" runat="server" CssClass="horizontal-radio">
+                <asp:ListItem Text="Encaminhamento" Value="3" />
+                <asp:ListItem Text="Exames Diagnósticos" Value="5" />
+                <asp:ListItem Text="Encaminhamento Especializado" Value="7" />
+                <asp:ListItem Text="Alta" Value="9" Selected="True" />
+            </asp:RadioButtonList>
+
         </section>
 
         <br>
