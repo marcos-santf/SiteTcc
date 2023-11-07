@@ -24,6 +24,15 @@ namespace SiteTcc
         protected global::SiteTCC.padraoMenu1 MenuControl;
 
         /// <summary>
+        /// Controle userForm.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm userForm;
+
+        /// <summary>
         /// Controle pnEnfermagem.
         /// </summary>
         /// <remarks>
@@ -42,15 +51,6 @@ namespace SiteTcc
         protected global::System.Web.UI.HtmlControls.HtmlInputText userCoren;
 
         /// <summary>
-        /// Controle userId.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText userId;
-
-        /// <summary>
         /// Controle userName.
         /// </summary>
         /// <remarks>
@@ -58,15 +58,6 @@ namespace SiteTcc
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText userName;
-
-        /// <summary>
-        /// Controle pnPaciente.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pnPaciente;
 
         /// <summary>
         /// Controle patientName.
@@ -78,40 +69,13 @@ namespace SiteTcc
         protected global::System.Web.UI.HtmlControls.HtmlInputText patientName;
 
         /// <summary>
-        /// Controle patientCpf.
+        /// Controle idSenha.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText patientCpf;
-
-        /// <summary>
-        /// Controle patientPhone.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText patientPhone;
-
-        /// <summary>
-        /// Controle patientEmail.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText patientEmail;
-
-        /// <summary>
-        /// Controle pnAtendimento.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pnAtendimento;
+        protected global::System.Web.UI.WebControls.Label idSenha;
 
         /// <summary>
         /// Controle symptoms.
@@ -168,12 +132,21 @@ namespace SiteTcc
         protected global::System.Web.UI.HtmlControls.HtmlInputText observations;
 
         /// <summary>
-        /// Controle pnAtendAnter.
+        /// Controle pnBotao.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pnAtendAnter;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pnBotao;
+
+        /// <summary>
+        /// Controle submitButton.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button submitButton;
     }
 }

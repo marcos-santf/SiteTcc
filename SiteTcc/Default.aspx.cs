@@ -80,7 +80,7 @@ namespace SiteTCC
         {
             string DirecionaPagina = string.Empty;
 
-            DirecionaPagina = Request.QueryString["Param5"];
+            DirecionaPagina = clsCriptografia.Decrypt(Request.QueryString["Param1"], "Eita#$%Nois##", true);
 
             if (Request.QueryString["Param6"] == "home")
             {

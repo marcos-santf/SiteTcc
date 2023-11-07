@@ -21,7 +21,10 @@ namespace SiteTCC
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.QueryString["P"] != "1")
-                CarregaControle();
+            {
+                if(!IsPostBack)
+                    CarregaControle();
+            }
             else
             {
                 pnAtendimento.Visible = false;
@@ -45,6 +48,11 @@ namespace SiteTCC
             {
                 submitButton.Text = "Salvar";
                 pnSenha.Visible = false;
+            }
+
+            if(idSenha.Text == "")
+            {
+                pnAtendimento.Visible = false;
             }
         }
 
@@ -82,14 +90,30 @@ namespace SiteTCC
             string responsavel = userResponsavel.Value;
             string telefone = userPhone.Value;
             string email = userEmail.Value;
+            int prioridade = 0;
 
             if (dataNascimento != string.Empty)
             {
                 TimeSpan idade = DateTime.Now - Convert.ToDateTime(dataNascimento);
                 if (idade.TotalDays < 18 * 365)
                 {
-                    validaDados.ClientMessage(this, "Favor, informar o Responsável.");
-                    return;
+                    if (responsavel == string.Empty)
+                    {
+                        validaDados.ClientMessage(this, "Favor, informar o Responsável.");
+                        return;
+                    }
+                }
+
+                TimeSpan idadeCrianca = DateTime.Now - Convert.ToDateTime(dataNascimento);
+                if (idadeCrianca.TotalDays < 13 * 365)
+                {
+                    prioridade = 1;
+                }
+
+                TimeSpan idadeIdoso = DateTime.Now - Convert.ToDateTime(dataNascimento);
+                if (idadeIdoso.TotalDays > 64 * 365)
+                {
+                    prioridade = 2;
                 }
             }
 
@@ -136,7 +160,7 @@ namespace SiteTCC
                 }
                 else
                 {
-                    EnviarDadosParaBanco(nomeCompleto, cpf, rg, dataNascimento, responsavel, telefone, email, senha, lembreteSenha);
+                    EnviarDadosParaBanco(nomeCompleto, cpf, rg, dataNascimento, responsavel, telefone, email, senha, lembreteSenha, prioridade);
                 }
             }
             else if (Request.QueryString["Param6"] == "conta")
@@ -181,7 +205,7 @@ namespace SiteTCC
             }
         }
 
-        private void EnviarDadosParaBanco(string nomeCompleto, string cpf, string rg, string dataNascimento,string responsavel,string telefone,string email,string senha, string lembreteSenha)
+        private void EnviarDadosParaBanco(string nomeCompleto, string cpf, string rg, string dataNascimento,string responsavel,string telefone,string email,string senha, string lembreteSenha, int prioridade)
         {
             clsValidaDados validaDados = new clsValidaDados();
             string Password = string.Empty;
@@ -209,6 +233,7 @@ namespace SiteTCC
                         cmd.Parameters.AddWithValue("@ds_email", email);
                         cmd.Parameters.AddWithValue("@ds_senha", Password);
                         cmd.Parameters.AddWithValue("@ds_lembrete_senha", lembreteSenha);
+                        cmd.Parameters.AddWithValue("@ind_prioridade", prioridade);
                         cmd.ExecuteNonQuery();
                     }
                 }

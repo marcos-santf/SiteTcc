@@ -16,55 +16,20 @@ section[id="pnMedico"] {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-section[id="pnPaciente"] {
-    background-color: #fff;
-    border: 2px solid #ccc;
-    padding: 50px;
-    margin: 3%;
-    margin-right: 20%;
-    margin-left: 20%;
-    border-radius: 50px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-section[id="pnAtendimento"] {
-    background-color: #fff;
-    border: 2px solid #ccc;
-    padding: 50px;
-    margin: 3%;
-    margin-right: 20%;
-    margin-left: 20%;
-    border-radius: 50px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-section[id="pnPMedica"] {
-    background-color: #fff;
-    border: 2px solid #ccc;
-    padding: 50px;
-    margin: 3%;
-    margin-right: 20%;
-    margin-left: 20%;
-    border-radius: 50px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-section[id="pnEnfermagem"] {
-    background-color: #fff;
-    border: 2px solid #ccc;
-    padding: 50px;
-    margin: 3%;
-    margin-right: 20%;
-    margin-left: 20%;
-    border-radius: 50px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
 h2 {
     color: #4F4F4F;
 }
 
 h4 {
+    color: #808080;
+    margin-block-start: 0px;
+    margin-block-end: 5px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+h3 {
     color: #808080;
     margin-block-start: 0px;
     margin-block-end: 5px;
@@ -103,3 +68,25 @@ input[type="text"] {
     border: none;
     cursor: pointer;
 }
+
+@media (max-width: 768px) {
+    section[id="pnMedico"] {
+        padding: 20px;
+        margin: 5%;
+        margin-right: 5%;
+        margin-left: 5%;
+    }
+
+    input[type="text"] {
+        width: 100%;
+    }
+}
+
+.horizontal-radio {
+    display: block;
+    text-align:center;
+}
+
+    .horizontal-radio label {
+        margin-right: 53px;
+    }

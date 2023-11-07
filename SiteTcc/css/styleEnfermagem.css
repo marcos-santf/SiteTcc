@@ -16,44 +16,20 @@ section[id="pnEnfermagem"] {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-section[id="pnPaciente"] {
-    background-color: #fff;
-    border: 2px solid #ccc;
-    padding: 50px;
-    margin: 3%;
-    margin-right: 20%;
-    margin-left: 20%;
-    border-radius: 50px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-section[id="pnAtendimento"] {
-    background-color: #fff;
-    border: 2px solid #ccc;
-    padding: 50px;
-    margin: 3%;
-    margin-right: 20%;
-    margin-left: 20%;
-    border-radius: 50px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-section[id="pnAtendAnter"] {
-    background-color: #fff;
-    border: 2px solid #ccc;
-    padding: 50px;
-    margin: 3%;
-    margin-right: 20%;
-    margin-left: 20%;
-    border-radius: 50px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
 h2 {
     color: #4F4F4F;
 }
 
 h4 {
+    color: #808080;
+    margin-block-start: 0px;
+    margin-block-end: 5px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+h3 {
     color: #808080;
     margin-block-start: 0px;
     margin-block-end: 5px;
@@ -93,12 +69,15 @@ input[type="text"] {
     cursor: pointer;
 }
 
-/* Estilos para a lista de atendimentos anteriores */
-#previousAppointments {
-    list-style-type: none;
-    padding: 0;
-}
-
-    #previousAppointments li {
-        margin-bottom: 10px;
+@media (max-width: 768px) {
+    section[id="pnEnfermagem"] {
+        padding: 20px;
+        margin: 5%;
+        margin-right: 5%;
+        margin-left: 5%;
     }
+
+    input[type="text"] {
+        width: 100%;
+    }
+}
