@@ -261,6 +261,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="img\icons_hospital.png" />
+    <Content Include="img\imgLogin.jpg" />
     <Content Include="js\scriptLogin.js" />
     <Content Include="js\scriptMenu.js" />
     <Content Include="js\scriptMenuCanto.js" />
