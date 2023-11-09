@@ -25,11 +25,11 @@
 		<form  id="userForm" runat="server">
 			<h1>Login</h1>
 			<div class="input-box">
-				<input type="text" id="cpf" oninput="this.value = this.value.replace(/\D/g, '')" placeholder="CPF" required>
+				<input type="text" id="cpf" runat="server" oninput="this.value = this.value.replace(/\D/g, '')" placeholder="CPF" required>
 				<i class="bx bxs-user"></i>
 			</div>
 			<div class="input-box">
-				<input type="password" id="password" placeholder="Senha" required>
+				<input type="password" id="password" runat="server" placeholder="Senha" required>
 				<i class="bx bxs-lock-alt"></i>
 			</div>
 			<div class="remember-forgot">

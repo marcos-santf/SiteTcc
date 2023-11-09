@@ -4,11 +4,10 @@
 document.getElementById('cadastrar').addEventListener('click', redirecionarParaCadastro);
 
 function validaDadosAcesso() {
-    debugger;
     var cpf = document.getElementById('cpf').value;
     var password = document.getElementById('password').value;
     if (cpf.trim() !== "" && password.trim() !== "") {
-        window.location.href = 'padraoLogin.aspx?Param1=' + cpf + '&Param2=' + password + '&Param3=0';
+        window.location.href = 'padraoLogin.aspx';
     }
 }
 document.getElementById('submit').addEventListener('click', validaDadosAcesso);

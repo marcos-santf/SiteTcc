@@ -16,12 +16,12 @@ namespace SiteTCC
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.QueryString["Param1"] != null && Request.QueryString["Param2"] != null)
+            if (cpf.Value != "" && password.Value != "")
             {
                 string Param1 = string.Empty;
-                Param1 = clsCriptografia.Encrypt(Request.QueryString["Param2"], "Eita#$%Nois##", true);
+                Param1 = clsCriptografia.Encrypt(password.Value, "Eita#$%Nois##", true);
 
-                ValidaDadosBanco(Request.QueryString["Param1"], Param1);
+                ValidaDadosBanco(cpf.Value, Param1);
             }
         }
 
