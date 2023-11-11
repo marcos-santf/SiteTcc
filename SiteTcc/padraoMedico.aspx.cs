@@ -22,6 +22,10 @@ namespace SiteTcc
                 if (!IsPostBack)
                     CarregaControle();
             }
+            else
+            {
+                Response.Redirect("padraoLogin.aspx");
+            }
 
             doctorName.Disabled = true;
             crm.Disabled = true;
@@ -41,7 +45,7 @@ namespace SiteTcc
             string Param2 = string.Empty;
             int CodigoUsuario = int.MinValue;
 
-            Param2 = Request.QueryString["Param5"];
+            Param2 = clsCriptografia.Decrypt(Request.QueryString["Param2"], "Eita#$%Nois##", true);
 
             CodigoUsuario = Convert.ToInt32(Param2);
 
@@ -77,7 +81,7 @@ namespace SiteTcc
             string Param2 = string.Empty;
             int CodigoUsuario = int.MinValue;
 
-            Param2 = Request.QueryString["Param5"];
+            Param2 = clsCriptografia.Decrypt(Request.QueryString["Param2"], "Eita#$%Nois##", true);
 
             CodigoUsuario = Convert.ToInt32(Param2);
 

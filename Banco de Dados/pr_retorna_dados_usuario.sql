@@ -53,10 +53,32 @@ BEGIN
 				cd_usuario = @cd_usuario 
 				AND fg_excluido = 0
 
-			SELECT *
+			SELECT 
+				ps.ds_nome							AS [Nome do Paciente],
+				ps2.ds_nome							AS [Enfermeira Responsável],
+				ps3.ds_nome							AS [Médico Responsável],
+				CONVERT(varchar, pe.dt_exame, 103)	AS [Data do Exame],
+				pe.ds_sintomas						AS [Sintomas],
+				pe.ds_pressao						AS [Pressão Arterial],
+				pe.ds_batimento						AS [Batimentos Cardíacos], 
+				pe.ds_oxigenacao					AS [Oxigenação], 
+				pe.ds_queixa_paciente				AS [Queixas do Paciente], 
+				pe.ds_observacoes_enfermagem		AS [Observações Enfermagem],
+				pe.ds_diagnostico_medico			AS [Diagnóstico Médico],
+				pe.ds_prescricao_medica				AS [Prescrição Médica]
+				
 			FROM
-				tb_paciente_exames
-			WHERE cd_paciente = (SELECT cd_paciente FROM tb_paciente WHERE cd_usuario = @cd_usuario) AND fg_enfermagem_finalizado = 1 AND fg_medico_finalizado = 1
+				tb_paciente_exames pe
+				INNER JOIN tb_paciente p ON p.cd_paciente = pe.cd_paciente
+				INNER JOIN tb_usuario u ON u.cd_usuario = p.cd_usuario AND u.fg_excluido = 0
+				INNER JOIN tb_pessoa ps ON ps.cd_pessoa = u.cd_pessoa AND ps.fg_excluido = 0
+				INNER JOIN tb_enfermagem en ON en.cd_enfermagem = pe.cd_enfermagem AND en.fg_excluido = 0
+				INNER JOIN tb_usuario u2 ON u2.cd_usuario = en.cd_usuario AND u2.fg_excluido = 0
+				INNER JOIN tb_pessoa ps2 ON ps2.cd_pessoa = u2.cd_pessoa AND ps2.fg_excluido = 0
+				INNER JOIN tb_medico me ON me.cd_medico = pe.cd_medico AND me.fg_excluido = 0
+				INNER JOIN tb_usuario u3 ON u3.cd_usuario = me.cd_usuario AND u3.fg_excluido = 0
+				INNER JOIN tb_pessoa ps3 ON ps3.cd_pessoa = u3.cd_pessoa AND ps3.fg_excluido = 0
+			WHERE pe.cd_paciente = (SELECT cd_paciente FROM tb_paciente WHERE cd_usuario = @cd_usuario) AND fg_enfermagem_finalizado = 1 AND fg_medico_finalizado = 1
 			ORDER BY cd_exame
 		END
 		ELSE IF EXISTS(SELECT 1 FROM tb_enfermagem WHERE cd_usuario = @cd_usuario)

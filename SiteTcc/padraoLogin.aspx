@@ -29,11 +29,11 @@
 				<i class="bx bxs-user"></i>
 			</div>
 			<div class="input-box">
-				<input type="password" id="password" runat="server" placeholder="Senha" required>
-				<i class="bx bxs-lock-alt"></i>
+				<input type="password" id="password" runat="server" placeholder="Senha"  required>
+				<i class="bx bxs-lock-alt" runat="server" id="iconlock"></i>
 			</div>
 			<div class="remember-forgot">
-				<label><input type="checkbox"> Remember me</label>
+				<label><input id="btnsenha" onclick="mostrarSenha()" runat="server" type="checkbox"> Mostrar Senha</label>
 				<a href="#">Esqueceu a senha?</a>
 			</div>
 			<button type="submit" id="submit" class="btn">Entrar</button>

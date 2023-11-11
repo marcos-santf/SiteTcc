@@ -7,12 +7,21 @@
 // </gerado automaticamente>
 //------------------------------------------------------------------------------
 
-namespace SiteTCC
+namespace SiteTcc
 {
 
 
-    public partial class padraoLogin
+    public partial class padraoAgenda
     {
+
+        /// <summary>
+        /// Controle MenuControl.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::SiteTCC.padraoMenu1 MenuControl;
 
         /// <summary>
         /// Controle userForm.
@@ -24,39 +33,21 @@ namespace SiteTCC
         protected global::System.Web.UI.HtmlControls.HtmlForm userForm;
 
         /// <summary>
-        /// Controle cpf.
+        /// Controle pnMedico.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText cpf;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pnMedico;
 
         /// <summary>
-        /// Controle password.
+        /// Controle gridView.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword password;
-
-        /// <summary>
-        /// Controle iconlock.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl iconlock;
-
-        /// <summary>
-        /// Controle btnsenha.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox btnsenha;
+        protected global::System.Web.UI.WebControls.GridView gridView;
     }
 }

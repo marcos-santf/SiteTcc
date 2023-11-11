@@ -110,3 +110,9 @@ body {
     .register-link p a:hover {
         text-decoration: underline;
     }
+
+#a.bx {
+    background-color: #fff;
+    color: #fff; 
+    text-decoration: none; 
+}

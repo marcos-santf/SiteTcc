@@ -41,10 +41,11 @@ namespace SiteTCC
 
                 if (ds.Tables[0].Rows.Count > 0)
                 {
-                    Param1 = clsCriptografia.Encrypt(Convert.ToInt32(ds.Tables[0].Rows[0]["cd_perfil"]).ToString(), "Eita#$%Nois##", true);
-                    Param2 = clsCriptografia.Encrypt(Convert.ToInt32(ds.Tables[0].Rows[0]["cd_usuario"]).ToString(), "Eita#$%Nois##", true);
-                    Param3 = clsCriptografia.Encrypt("designer", "Eita#$%Nois##", true);
-                    Param4 = clsCriptografia.Encrypt(cpf, "Eita#$%Nois##", true);
+                    Param1 = HttpUtility.UrlEncode(clsCriptografia.Encrypt(Convert.ToInt32(ds.Tables[0].Rows[0]["cd_perfil"]).ToString(), "Eita#$%Nois##", true));
+                    Param2 = HttpUtility.UrlEncode(clsCriptografia.Encrypt(Convert.ToInt32(ds.Tables[0].Rows[0]["cd_usuario"]).ToString(), "Eita#$%Nois##", true));
+                    Param3 = HttpUtility.UrlEncode(clsCriptografia.Encrypt("designer", "Eita#$%Nois##", true));
+                    Param4 = HttpUtility.UrlEncode(clsCriptografia.Encrypt(cpf, "Eita#$%Nois##", true));
+
 
                     DirecionaPagina = Convert.ToInt32(ds.Tables[0].Rows[0]["cd_perfil"]).ToString();
                     CodigoUsuario = Convert.ToInt32(ds.Tables[0].Rows[0]["cd_usuario"]).ToString();
@@ -63,11 +64,11 @@ namespace SiteTCC
             }
 
             if (DirecionaPagina == "2")
-                Response.Redirect("padraoPaciente.aspx?Param1=" + Param1 + "&Param2=" + Param2 + "&Param3=" + Param3 + "&Param4=" + Param4 + "&Param5=" + CodigoUsuario + "&Param6=home");
+                Response.Redirect("padraoPaciente.aspx?Param1=" + Param1 + "&Param2=" + Param2 + "&Param3=" + Param3 + "&Param4=" + Param4 + "&Param5=home");
             else if (DirecionaPagina == "3")
-                Response.Redirect("padraoEnfermagem.aspx?Param1=" + Param1 + "&Param2=" + Param2 + "&Param3=" + Param3 + "&Param4=" + Param4 + "&Param5=" + CodigoUsuario + "&Param6=home");
+                Response.Redirect("padraoEnfermagem.aspx?Param1=" + Param1 + "&Param2=" + Param2 + "&Param3=" + Param3 + "&Param4=" + Param4 + "&Param5=home");
             else if (DirecionaPagina == "4")
-                Response.Redirect("padraoMedico.aspx?Param1=" + Param1 + "&Param2=" + Param2 + "&Param3=" + Param3 + "&Param4=" + Param4 + "&Param5=" + CodigoUsuario + "&Param6=home");
+                Response.Redirect("padraoMedico.aspx?Param1=" + Param1 + "&Param2=" + Param2 + "&Param3=" + Param3 + "&Param4=" + Param4 + "&Param5=home");
         }
     }
 }

@@ -27,11 +27,10 @@ namespace SiteTCC
             }
             else
             {
-                pnAtendimento.Visible = false;
-                MenuControl.Visible = false;
+                Response.Redirect("padraoLogin.aspx");
             }
 
-            if (Request.QueryString["Param6"] == "home")
+            if (Request.QueryString["Param5"] == "home")
             {
                 userName.Disabled = true;
                 userCpf.Disabled = true;
@@ -44,7 +43,7 @@ namespace SiteTCC
                 pnSenha.Visible = false;
                 pnBotao.Visible = false;
             }
-            else if (Request.QueryString["Param6"] == "conta")
+            else if (Request.QueryString["Param5"] == "conta")
             {
                 submitButton.Text = "Salvar";
                 pnSenha.Visible = false;
@@ -60,12 +59,10 @@ namespace SiteTCC
         {
             userDateOfBirth.Visible = false;
             Date.Visible = true;
-            string Param2 = string.Empty;
-            int CodigoUsuario = int.MinValue;
 
-            Param2 = Request.QueryString["Param5"];
+            string Param2 = clsCriptografia.Decrypt(Request.QueryString["Param2"], "Eita#$%Nois##", true);
 
-            CodigoUsuario = Convert.ToInt32(Param2);
+            int CodigoUsuario = Convert.ToInt32(Param2);
 
             DataSet ds = clsUsuario.RetornaDadosUsuario(CodigoUsuario);
 
@@ -77,7 +74,7 @@ namespace SiteTCC
             userResponsavel.Value = ds.Tables[0].Rows[0]["ds_responsavel"] == DBNull.Value ? string.Empty : (string)ds.Tables[0].Rows[0]["ds_responsavel"];
             userPhone.Value = ds.Tables[0].Rows[0]["ds_telefone"] == DBNull.Value ? string.Empty : (string)ds.Tables[0].Rows[0]["ds_telefone"];
             userEmail.Value = ds.Tables[0].Rows[0]["ds_email"] == DBNull.Value ? string.Empty : (string)ds.Tables[0].Rows[0]["ds_email"];
-            idSenha.Text = ds.Tables[1].Rows[0]["nr_senha"] == DBNull.Value ? string.Empty : (string)ds.Tables[1].Rows[0]["nr_senha"]; ;
+            idSenha.Text = ds.Tables [1].Rows[0]["nr_senha"] == DBNull.Value ? string.Empty : (string)ds.Tables[1].Rows[0]["nr_senha"]; ;
         }
         protected void submitButton_Click(object sender, EventArgs e)
         {
@@ -117,7 +114,7 @@ namespace SiteTCC
                 }
             }
 
-            if (Request.QueryString["Param6"] != "conta")
+            if (Request.QueryString["Param5"] != "conta")
             {
                 string senha = userSenha.Value;
                 string confirmaSenha = userConfSenha.Value;
@@ -163,18 +160,16 @@ namespace SiteTCC
                     EnviarDadosParaBanco(nomeCompleto, cpf, rg, dataNascimento, responsavel, telefone, email, senha, lembreteSenha, prioridade);
                 }
             }
-            else if (Request.QueryString["Param6"] == "conta")
+            else if (Request.QueryString["Param5"] == "conta")
             {
                 dataNascimento = Date.Value;
                 string formatoOriginal = "dd/MM/yyyy";
                 DateTime data = DateTime.ParseExact(dataNascimento, formatoOriginal, null);
                 dataNascimento = data.ToString("yyyy/MM/dd");
 
-                string userEmailValue = userEmail.Value;
-
                 string Param2 = string.Empty;
                 int CodigoUsuario = int.MinValue;
-                Param2 = Request.QueryString["Param5"];
+                Param2 = clsCriptografia.Decrypt(Request.QueryString["Param2"], "Eita#$%Nois##", true);
 
                 CodigoUsuario = Convert.ToInt32(Param2);
 
@@ -277,7 +272,6 @@ namespace SiteTCC
                 }
                 Response.StatusCode = 200;
                 validaDados.ClientMessage(this,"Dados inseridos com sucesso.");
-                CarregaControle();
             }
             catch (Exception ex)
             {

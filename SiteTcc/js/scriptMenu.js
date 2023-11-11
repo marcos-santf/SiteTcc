@@ -37,38 +37,47 @@ btnExp.addEventListener('click', function () {
 
 function redirecionarParaHome() {
     var urlParams = new URLSearchParams(window.location.search);
-    var Param1 = urlParams.get("Param1");
-    var Param2 = urlParams.get("Param2");
-    var Param3 = urlParams.get("Param3");
-    var Param4 = urlParams.get("Param4");
-    var Param5 = urlParams.get("Param5");
+    var Param1 = encodeURIComponent(urlParams.get("Param1"));
+    var Param2 = encodeURIComponent(urlParams.get("Param2"));
+    var Param3 = encodeURIComponent(urlParams.get("Param3"));
+    var Param4 = encodeURIComponent(urlParams.get("Param4"));
 
-    var novoURL = 'Default.aspx?Param1=' + Param1 + '&Param2=' + Param2 + '&Param3=' + Param3 + '&Param4=' + Param4 + '&Param5=' + Param5 + '&Param6=home';
+    var novoURL = 'Default.aspx?Param1=' + Param1 + '&Param2=' + Param2 + '&Param3=' + Param3 + '&Param4=' + Param4 + '&Param5=home';
 
     window.location.href = novoURL;
 }
-
 document.getElementById('home').addEventListener('click', redirecionarParaHome);
+
+function redirecionarParaAgenda() {
+    var urlParams = new URLSearchParams(window.location.search);
+    var Param1 = encodeURIComponent(urlParams.get("Param1"));
+    var Param2 = encodeURIComponent(urlParams.get("Param2"));
+    var Param3 = encodeURIComponent(urlParams.get("Param3"));
+    var Param4 = encodeURIComponent(urlParams.get("Param4"));
+
+    var novoURL = 'padraoExames.aspx?Param1=' + Param1 + '&Param2=' + Param2 + '&Param3=' + Param3 + '&Param4=' + Param4 + '&Param5=exame';
+
+    window.location.href = novoURL;
+}
+document.getElementById('exame').addEventListener('click', redirecionarParaAgenda);
 
 function redirecionarParaConta() {
     var urlParams = new URLSearchParams(window.location.search);
-    var Param1 = urlParams.get("Param1");
-    var Param2 = urlParams.get("Param2");
-    var Param3 = urlParams.get("Param3");
-    var Param4 = urlParams.get("Param4");
-    var Param5 = urlParams.get("Param5");
+    var Param1 = encodeURIComponent(urlParams.get("Param1"));
+    var Param2 = encodeURIComponent(urlParams.get("Param2"));
+    var Param3 = encodeURIComponent(urlParams.get("Param3"));
+    var Param4 = encodeURIComponent(urlParams.get("Param4"));
 
-    var novoURL = 'Default.aspx?Param1=' + Param1 + '&Param2=' + Param2 + '&Param3=' + Param3 + '&Param4=' + Param4 + '&Param5=' + Param5 + '&Param6=conta';
+    var novoURL = 'Default.aspx?Param1=' + Param1 + '&Param2=' + Param2 + '&Param3=' + Param3 + '&Param4=' + Param4 + '&Param5=conta';
 
     window.location.href = novoURL;
 }
-
 document.getElementById('conta').addEventListener('click', redirecionarParaConta);
+
 
 function Sair() {
     localStorage.clear();
 
     window.location.href = 'padraoLogin.aspx';
 }
-
 document.getElementById('sair').addEventListener('click', Sair);

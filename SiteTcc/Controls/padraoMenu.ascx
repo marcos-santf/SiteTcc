@@ -12,16 +12,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
-
 </head>
 <body>
-
     <nav class="menu-lateral">
-
         <div class="btn-expandir">
             <i class="bi bi-list" id="btn-exp"></i>
         </div><!--btn-expandir-->
-
         <ul>
             <li class="item-menu">
                 <a href="#" class="item-menu" type="submit" id="home">
@@ -42,13 +38,13 @@
                 </a>
             </li>
             <%--<li class="item-menu">
-                <a href="#" class="item-menu" type="submit" id="config" visible="false">
+                <a href="#" type="submit" id="config" visible="false">
                     <span class="icon"><i class="bi bi-gear"></i></span>
                     <span class="txt-link">Configurações</span>
                 </a>
             </li>--%>
             <li class="item-menu">
-                <a href="#" class="item-menu" type="submit" id="conta" visible="false">
+                <a href="#" class="item-menu" type="submit" id="conta">
                     <span class="icon"><i class="bi bi-person-circle"></i></span>
                     <span class="txt-link">Conta</span>
                 </a>
@@ -60,25 +56,7 @@
                 </a>
             </li>
         </ul>
-
     </nav><!--menu-lateral-->
-    <div class="menu">
-      <a href="#account">
-        <i class="fas fa-user"></i>
-      </a>
-      <a href="#info">
-        <i class="fas fa-info"></i>
-      </a>
-      <a href="#message">
-        <i class="fas fa-comment-dots"></i>
-      </a>
-      <a href="#contact">
-        <i class="fas fa-phone-alt"></i>
-      </a>
-      <button id="toggle-btn">
-        <i class="fas fa-plus"></i>
-      </button>
-    </div>
     <script src="js/scriptMenu.js"></script>
     <script src="js/scriptMenuCanto.js"></script>
 </body>
