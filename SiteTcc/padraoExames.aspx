@@ -20,7 +20,6 @@
         <section id="pnExame" runat="server" visible="true" class="section-common-style">
             <asp:GridView ID="gridView" runat="server" AutoGenerateColumns="True"></asp:GridView>
         </section>
-        <button id="gerarPDF">Gerar PDF</button>
     </form>
 </body>
 </html>
