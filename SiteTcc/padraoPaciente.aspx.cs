@@ -22,12 +22,12 @@ namespace SiteTCC
         {
             if (Request.QueryString["P"] != "1")
             {
-                if(!IsPostBack)
+                if (!IsPostBack)
                     CarregaControle();
             }
             else
             {
-                Response.Redirect("padraoLogin.aspx");
+                MenuControl.Visible = false;
             }
 
             if (Request.QueryString["Param5"] == "home")
@@ -41,15 +41,23 @@ namespace SiteTCC
                 userResponsavel.Disabled = true;
 
                 pnSenha.Visible = false;
-                pnBotao.Visible = false;
+
+                if (idSenha.Text == "")
+                    pnBotao.Visible = true;
+                else
+                    pnBotao.Visible = false;
+
+                submitButton.Text = "Iniciar Triagem";
             }
             else if (Request.QueryString["Param5"] == "conta")
             {
                 submitButton.Text = "Salvar";
+                pnAtendimento.Visible = false;
+                pnBotao.Visible = true;
                 pnSenha.Visible = false;
             }
 
-            if(idSenha.Text == "")
+            if (idSenha.Text == "")
             {
                 pnAtendimento.Visible = false;
             }
@@ -64,7 +72,7 @@ namespace SiteTCC
 
             int CodigoUsuario = Convert.ToInt32(Param2);
 
-            DataSet ds = clsUsuario.RetornaDadosUsuario(CodigoUsuario);
+            DataSet ds = clsUsuario.RetornaDadosUsuario(CodigoUsuario, string.Empty, string.Empty, 0);
 
             userName.Value = (string)ds.Tables[0].Rows[0]["ds_nome"];
             userCpf.Value = (string)ds.Tables[0].Rows[0]["ds_cpf"];
@@ -74,7 +82,18 @@ namespace SiteTCC
             userResponsavel.Value = ds.Tables[0].Rows[0]["ds_responsavel"] == DBNull.Value ? string.Empty : (string)ds.Tables[0].Rows[0]["ds_responsavel"];
             userPhone.Value = ds.Tables[0].Rows[0]["ds_telefone"] == DBNull.Value ? string.Empty : (string)ds.Tables[0].Rows[0]["ds_telefone"];
             userEmail.Value = ds.Tables[0].Rows[0]["ds_email"] == DBNull.Value ? string.Empty : (string)ds.Tables[0].Rows[0]["ds_email"];
-            idSenha.Text = ds.Tables [1].Rows[0]["nr_senha"] == DBNull.Value ? string.Empty : (string)ds.Tables[1].Rows[0]["nr_senha"]; ;
+            idSenha.Text = ds.Tables [1].Rows[0]["nr_senha"] == DBNull.Value ? string.Empty : (string)ds.Tables[1].Rows[0]["nr_senha"];
+
+            if (idSenha.Text == "")
+            {
+                pnAtendimento.Visible = false;
+                pnBotao.Visible = true;
+            }
+            else
+            {
+                pnAtendimento.Visible = true;
+                pnBotao.Visible = false;
+            }
         }
         protected void submitButton_Click(object sender, EventArgs e)
         {
@@ -88,6 +107,14 @@ namespace SiteTCC
             string telefone = userPhone.Value;
             string email = userEmail.Value;
             int prioridade = 0;
+
+            if (Request.QueryString["Param5"] == "conta" || Request.QueryString["Param5"] == "home")
+            {
+                dataNascimento = Date.Value;
+                string formatoOriginal = "dd/MM/yyyy";
+                DateTime data = DateTime.ParseExact(dataNascimento, formatoOriginal, null);
+                dataNascimento = data.ToString("yyyy/MM/dd");
+            }
 
             if (dataNascimento != string.Empty)
             {
@@ -114,7 +141,7 @@ namespace SiteTCC
                 }
             }
 
-            if (Request.QueryString["Param5"] != "conta")
+            if (Request.QueryString["Param5"] != "conta" && Request.QueryString["Param5"] != "home")
             {
                 string senha = userSenha.Value;
                 string confirmaSenha = userConfSenha.Value;
@@ -160,7 +187,7 @@ namespace SiteTCC
                     EnviarDadosParaBanco(nomeCompleto, cpf, rg, dataNascimento, responsavel, telefone, email, senha, lembreteSenha, prioridade);
                 }
             }
-            else if (Request.QueryString["Param5"] == "conta")
+            else if (Request.QueryString["Param5"] == "conta" || Request.QueryString["Param5"] == "home")
             {
                 dataNascimento = Date.Value;
                 string formatoOriginal = "dd/MM/yyyy";
@@ -195,7 +222,12 @@ namespace SiteTCC
                 }
                 else
                 {
-                    AlteraDadosBanco(nomeCompleto, cpf, rg, dataNascimento, responsavel, telefone, email, CodigoUsuario);
+                    if(Request.QueryString["Param5"] == "conta")
+                        AlteraDadosBanco(nomeCompleto, cpf, rg, dataNascimento, responsavel, telefone, email, CodigoUsuario, prioridade,0);
+                    else if (Request.QueryString["Param5"] == "home")
+                        AlteraDadosBanco(nomeCompleto, cpf, rg, dataNascimento, responsavel, telefone, email, CodigoUsuario, prioridade, 1);
+
+                    CarregaControle();
                 }
             }
         }
@@ -232,7 +264,7 @@ namespace SiteTCC
                         cmd.ExecuteNonQuery();
                     }
                 }
-                Response.StatusCode = 200;
+
                 Response.Write("Dados inseridos com sucesso.");
                 Response.Redirect("Default.aspx?Param1=" + cpf + "&Param2=" + senha + "&Param3=0");
             }
@@ -243,7 +275,7 @@ namespace SiteTCC
             }
         }
 
-        private void AlteraDadosBanco(string nomeCompleto, string cpf, string rg, string dataNascimento, string responsavel, string telefone, string email, int CodigoUsuario)
+        private void AlteraDadosBanco(string nomeCompleto, string cpf, string rg, string dataNascimento, string responsavel, string telefone, string email, int CodigoUsuario, int prioridade , int tipo)
         {
             clsValidaDados validaDados = new clsValidaDados();
 
@@ -267,10 +299,11 @@ namespace SiteTCC
                         cmd.Parameters.AddWithValue("@ds_responsavel", responsavel);
                         cmd.Parameters.AddWithValue("@ds_email", email);
                         cmd.Parameters.AddWithValue("@CodigoUsuario", CodigoUsuario);
+                        cmd.Parameters.AddWithValue("@ind_prioridade", prioridade);
+                        cmd.Parameters.AddWithValue("@tipo", tipo);
                         cmd.ExecuteNonQuery();
                     }
                 }
-                Response.StatusCode = 200;
                 validaDados.ClientMessage(this,"Dados inseridos com sucesso.");
             }
             catch (Exception ex)

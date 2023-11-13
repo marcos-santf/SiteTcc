@@ -48,7 +48,7 @@ function redirecionarParaHome() {
 }
 document.getElementById('home').addEventListener('click', redirecionarParaHome);
 
-function redirecionarParaAgenda() {
+function redirecionarParaExame() {
     var urlParams = new URLSearchParams(window.location.search);
     var Param1 = encodeURIComponent(urlParams.get("Param1"));
     var Param2 = encodeURIComponent(urlParams.get("Param2"));
@@ -59,7 +59,20 @@ function redirecionarParaAgenda() {
 
     window.location.href = novoURL;
 }
-document.getElementById('exame').addEventListener('click', redirecionarParaAgenda);
+document.getElementById('exame').addEventListener('click', redirecionarParaExame);
+
+function redirecionarParaAgenda() {
+    var urlParams = new URLSearchParams(window.location.search);
+    var Param1 = encodeURIComponent(urlParams.get("Param1"));
+    var Param2 = encodeURIComponent(urlParams.get("Param2"));
+    var Param3 = encodeURIComponent(urlParams.get("Param3"));
+    var Param4 = encodeURIComponent(urlParams.get("Param4"));
+
+    var novoURL = 'padraoAgenda.aspx?Param1=' + Param1 + '&Param2=' + Param2 + '&Param3=' + Param3 + '&Param4=' + Param4 + '&Param5=agenda';
+
+    window.location.href = novoURL;
+}
+document.getElementById('agenda').addEventListener('click', redirecionarParaAgenda);
 
 function redirecionarParaConta() {
     var urlParams = new URLSearchParams(window.location.search);

@@ -49,7 +49,7 @@ namespace SiteTcc
 
             CodigoUsuario = Convert.ToInt32(Param2);
 
-            DataSet ds = clsUsuario.RetornaDadosUsuario(CodigoUsuario);
+            DataSet ds = clsUsuario.RetornaDadosUsuario(CodigoUsuario, string.Empty, string.Empty, 0);
 
             radioOptions.RepeatDirection = RepeatDirection.Horizontal;
 
@@ -72,7 +72,7 @@ namespace SiteTcc
             else
             {
                 pnBotao.Visible = false;
-                radioOptions.Visible = false;
+                //radioOptions.Visible = false;
             }
         }
 
@@ -85,7 +85,7 @@ namespace SiteTcc
 
             CodigoUsuario = Convert.ToInt32(Param2);
 
-            DataSet ds = clsUsuario.RetornaDadosUsuario(CodigoUsuario);
+            DataSet ds = clsUsuario.RetornaDadosUsuario(CodigoUsuario, string.Empty, string.Empty, 0);
 
             string diagnosticoMed = diagnosis.Value;
             string prescMed = prescription.Value;

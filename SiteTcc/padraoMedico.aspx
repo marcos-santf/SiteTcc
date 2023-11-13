@@ -16,7 +16,7 @@
         <h1>Atendimento Médico</h1>
     </header>
     <form id="userForm" runat="server">
-        <section id="pnMedico" runat="server" visible="true">
+        <section id="pnMedico"  class="section-common-style" runat="server" visible="true">
             <h2>Informações do Médico</h2>
             <br>
             <p><h4>Nome do Médico: <input type="text" id="doctorName" runat="server"></p>
@@ -75,12 +75,11 @@
                 <asp:ListItem Text="Alta" Value="9" Selected="True" />
             </asp:RadioButtonList>
 
-        </section>
-
-        <br>
-        <section id="pnBotao" runat="server" style="text-align: center; margin-top: 20px;">
-            <asp:Button ID="submitButton" runat="server" Text="Enviar Dados" OnClick="submitButton_Click" CssClass="action-button" />
-            <br><br><br><br>
+           <br><br><br>
+            <section id="pnBotao" runat="server" style="text-align: center; margin-top: 20px;">
+                <asp:Button ID="submitButton" runat="server" Text="Enviar Dados" OnClick="submitButton_Click" CssClass="action-button" />
+            </section>
+            <br>
         </section>
     </form>
 

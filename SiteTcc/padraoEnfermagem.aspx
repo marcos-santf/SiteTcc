@@ -16,7 +16,7 @@
         <h1>Triagem</h1>
     </header>
     <form id="userForm" runat="server">
-        <section id="pnEnfermagem" runat="server" visible="true">
+        <section id="pnEnfermagem" runat="server" visible="true" class="section-common-style">
              <section id="pnTituloEnfermagem" style="text-align: center;">
                   <h2>Informações da Enfermeira</h2>
              </section>
@@ -50,11 +50,11 @@
             <p><h4>Oxigenação: </h4><input type="text" id="oxygenLevel" onblur="restoreDefaultText(this)" runat="server" /></p>
             <p><h4>Queixa do Paciente: </h4><input type="text" id="patientComplaint" onblur="restoreDefaultText(this)" runat="server" /></p>
             <p><h4>Observações: </h4><input type="text" id="observations" onblur="restoreDefaultText(this)" runat="server" /></p>
-
-        </section>
-        <section id="pnBotao" runat="server" style="text-align: center; margin-top: 20px;">
-            <asp:Button ID="submitButton" runat="server" Text="Enviar Dados" OnClick="submitButton_Click" CssClass="action-button" />
-            <br><br><br><br>
+            <br><br><br>
+            <section id="pnBotao" runat="server" style="text-align: center; margin-top: 20px;">
+                <asp:Button ID="submitButton" runat="server" Text="Enviar Dados" OnClick="submitButton_Click" CssClass="action-button" />
+            </section>
+            <br>
         </section>
     </form>
     <script>

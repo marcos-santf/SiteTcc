@@ -15,37 +15,35 @@ namespace SiteTcc.Classes
 {
     public class clsUsuario
     {
-        public static DataSet RetornaDadosUsuario(int CodigoUsuario)
+        public static DataSet RetornaDadosUsuario(int CodigoUsuario, string dtInicio, string dtFim, int tipoPesquisa)
         {
             DataSet dataSet = new DataSet();
 
             try
             {
-                // Chama a stored procedure para inserir os dados no banco de dados
                 using (SqlConnection connection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["HOSPITALConnectionString"].ConnectionString))
                 {
-                    // Abre a conexão
                     connection.Open();
 
-                    // Criar o comando para a stored procedure
                     using (SqlCommand cmd = new SqlCommand("pr_retorna_dados_usuario", connection))
                     {
                         try
                         {
                             cmd.CommandType = CommandType.StoredProcedure;
                             cmd.Parameters.AddWithValue("@cd_usuario", CodigoUsuario);
+                            cmd.Parameters.AddWithValue("@dt_inicio", dtInicio);
+                            cmd.Parameters.AddWithValue("@dt_fim", dtFim);
+                            cmd.Parameters.AddWithValue("@ind_tipo", tipoPesquisa);
 
                             using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
                             {
                                 adapter.Fill(dataSet);
                             }
 
-                            // Retorne o dataSet após o preenchimento bem-sucedido
                             return dataSet;
                         }
                         catch (Exception ex)
                         {
-                            // Trate a exceção, se necessário
                             throw new Exception(ex.Message);
                         }
                     }
@@ -53,7 +51,31 @@ namespace SiteTcc.Classes
             }
             catch (Exception ex)
             {
-                // Trate a exceção, se necessário
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public void RetornaIncluiAgenda(int CodigoUsuario, string DtAgendamento, string TipoExame, string Exame)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["HOSPITALConnectionString"].ConnectionString))
+                {
+                    connection.Open();
+
+                    using (SqlCommand cmd = new SqlCommand("pr_inclui_agenda_exame", connection))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@cd_usuario", CodigoUsuario);
+                        cmd.Parameters.AddWithValue("@dt_exame", DtAgendamento);
+                        cmd.Parameters.AddWithValue("@ds_tipo_exame", TipoExame);
+                        cmd.Parameters.AddWithValue("@ds_exame_agendado", Exame);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
                 throw new Exception(ex.Message);
             }
         }

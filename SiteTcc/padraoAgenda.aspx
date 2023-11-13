@@ -6,20 +6,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styleMedico.css">
+    <link rel="stylesheet" href="css/styleAgenda.css">
+    <link rel="stylesheet" href="css/styleCampoPadrao.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+     <link rel="website icon" type="png" href="img/icons_hospital.png"/>
     <title>Agenda</title>
-    <link rel="website icon" type="png" href="img/icons_hospital.png"/>
     <uc:Menu runat="server" ID="MenuControl"/>
 </head>
 <body>
     <header>
-        <h1>Atendimento Médico</h1>
+        <h1>Agendamento</h1>
     </header>
     <form id="userForm" runat="server">
-        <section id="pnMedico" runat="server" visible="true">
-            <asp:GridView ID="gridView" runat="server" AutoGenerateColumns="True"></asp:GridView>
+        <section id="pnOptions" class="section-common-style" runat="server" visible="true">
+            <asp:RadioButtonList ID="radioOptions" runat="server" CssClass="horizontal-radio" AutoPostBack="true" OnSelectedIndexChanged="radioOptions_SelectedIndexChanged">
+                <asp:ListItem Text="Agendar" Value="0" Selected="True" />
+                <asp:ListItem Text="Exames Agendados" Value="1" />
+            </asp:RadioButtonList>
+            <br/>
+            <br/>
+            <br/>
+            <section id="pnAgendamento" runat="server" visible="true">
+                <div class="date-input-container">
+                    <h4 style="margin-left: 26px; margin-right: 5px;">Data: </h4>
+                    <input type="date" id="dtAgendamento" runat="server" CssClass="estilo-data"/>
+               </div>
+               <div class="date-input-container">
+                        <h4 style="margin-right: 5px;">Agendar: </h4>
+                    <asp:DropDownList ID="cboAgendar" runat="server" CssClass="estilo-cbo" AutoPostBack="true" OnSelectedIndexChanged="cboAgendar_SelectedIndexChanged">
+                        <asp:ListItem Text="Exame de Sangue" Value="0" />
+                        <asp:ListItem Text="Exames de Imagem" Value="1" />
+                        <asp:ListItem Text="Exames Psicológicos" Value="2" />
+                        <asp:ListItem Text="Vacina" Value="3" />
+                    </asp:DropDownList>
+                    <h4 style="margin-left: 10px; margin-right: 5px;" id="idMarcar" runat="server">Tipo: </h4>
+                    <asp:DropDownList ID="cboMarcar" runat="server" CssClass="estilo-cbo" AutoGenerateColumns="True"></asp:DropDownList>
+                </div>
+            </section>
+           <section id="pnAgenda" runat="server" visible="false">
+               <div class="date-input-container">
+                    <h4 style="margin-right: 5px;">De: </h4>
+                    <input type="date" id="dtInicio" runat="server" CssClass="estilo-data"/>
+                    <h4 style="margin-left: 10px; margin-right: 5px;">Até: </h4>
+                    <input type="date" id="dtFim" runat="server" CssClass="estilo-data"/>
+               </div>
+               <br/>
+               <asp:GridView ID="gridView" runat="server" AutoGenerateColumns="True"></asp:GridView>
+            </section>
+            <br><br><br><br>
+            <section id="pnBotao" runat="server" style="text-align: center; margin-top: 20px;">
+                 <asp:Button ID="submitButton" runat="server" Text="Pesquisar" OnClick="submitButton_Click" CssClass="action-button" />
+                 <br><br>
+            </section>
         </section>
     </form>
+    <script  src="js/scriptAgenda.js"></script>
 </body>
 </html>
 

@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styleExames.css">
+    <link rel="stylesheet" href="css/styleCampoPadrao.css">
     <title>Agenda</title>
     <link rel="website icon" type="png" href="img/icons_hospital.png"/>
     <uc:Menu runat="server" ID="MenuControl"/>
@@ -16,9 +17,10 @@
         <h1>Exames Anteriores</h1>
     </header>
     <form id="userForm" runat="server">
-        <section id="pnExame" runat="server" visible="true">
+        <section id="pnExame" runat="server" visible="true" class="section-common-style">
             <asp:GridView ID="gridView" runat="server" AutoGenerateColumns="True"></asp:GridView>
         </section>
+        <button id="gerarPDF">Gerar PDF</button>
     </form>
 </body>
 </html>

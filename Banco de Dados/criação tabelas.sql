@@ -103,3 +103,14 @@ CREATE TABLE tb_enfermagem (
 	ind_prioridade INT,
 	CONSTRAINT FK_Enfermagem_Usuario FOREIGN KEY (cd_usuario) REFERENCES tb_usuario(cd_usuario)
 )
+
+CREATE TABLE tb_agenda_exames (
+    cd_agenda INT IDENTITY(1,1) PRIMARY KEY,
+    cd_usuario INT,
+	dt_exame DATE,
+	dt_inclusao DATETIME,
+	dt_alteracao DATETIME,
+	fg_excluido BIT DEFAULT 0,
+	ds_tipo_exame VARCHAR(100),
+	ds_exame_agendado VARCHAR(100)
+)

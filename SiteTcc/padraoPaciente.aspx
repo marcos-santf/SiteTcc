@@ -6,6 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styleCampoPadrao.css">
     <link rel="stylesheet" href="css/stylePaciente.css">
     <title>Paciente</title>
     <link rel="website icon" type="png" href="img/icons_hospital.png"/>
@@ -16,7 +17,7 @@
         <header>
             <h1>Dados</h1>
         </header>
-        <section id="pnAtendimento" runat="server" visible="true">
+        <section id="pnAtendimento" class="section-common-style" runat="server" visible="true">
             <section id="pnTituloSenha" style="text-align: center;">
                  <h2>SENHA</h2>
             </section>
@@ -26,7 +27,7 @@
             </section>
          </section>
 
-        <section id="pnPaciente" runat="server" visible="true">
+        <section id="pnPaciente" class="section-common-style" runat="server" visible="true">
             <section id="pnTitulo" style="text-align: center;">
                  <h2>Informações do Paciente</h2>
             </section>
@@ -34,7 +35,7 @@
             <p><h4>Nome Completo: </h4><input type="text" id="userName" runat="server" /></p>
             <p><h4>CPF: </h4><input type="text" id="userCpf" runat="server" oninput="this.value = this.value.replace(/\D/g, '')" /></p>
             <p><h4>RG: </h4><input type="text" id="userRg" runat="server" /></p>
-            <p><h4>Data de Nascimento: </h4><input type="date" id="userDateOfBirth" runat="server" /><input type="text" id="Date" runat="server" visible="false"/></p>
+            <p><h4>Data de Nascimento: </h4><input type="date" id="userDateOfBirth" runat="server" CssClass="estilo-data"/><input type="text" id="Date" runat="server" visible="false"/></p>
             <p><h4>Responsável: </h4><input type="text" id="userResponsavel" runat="server" /></p>
             <p><h4>Telefone: </h4><input type="text" id="userPhone" runat="server" /></p>
             <p><h4>E-mail: </h4><input type="text" id="userEmail"  runat="server" /></p>
