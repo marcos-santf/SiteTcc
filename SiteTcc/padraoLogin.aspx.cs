@@ -23,6 +23,13 @@ namespace SiteTCC
 
                 ValidaDadosBanco(cpf.Value, Param1);
             }
+            else if (Request.QueryString["Param1"] != null && Request.QueryString["Param2"] != null && Request.QueryString["Param3"] == "0")
+            {
+                string Param1 = string.Empty;
+                Param1 = clsCriptografia.Encrypt(Request.QueryString["Param2"], "Eita#$%Nois##", true);
+
+                ValidaDadosBanco(Request.QueryString["Param1"], Param1);
+            }
         }
 
         private void ValidaDadosBanco(string cpf, string senha)

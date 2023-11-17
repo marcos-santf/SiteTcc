@@ -266,7 +266,7 @@ namespace SiteTCC
                 }
 
                 Response.Write("Dados inseridos com sucesso.");
-                Response.Redirect("Default.aspx?Param1=" + cpf + "&Param2=" + senha + "&Param3=0");
+                Response.Redirect("padraoLogin.aspx?Param1=" + cpf + "&Param2=" + senha + "&Param3=0");
             }
             catch (Exception ex)
             {
