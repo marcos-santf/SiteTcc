@@ -41,7 +41,7 @@ namespace SiteTcc
 
             CodigoUsuario = Convert.ToInt32(Param2);
 
-            DataSet ds = clsUsuario.RetornaDadosUsuario(CodigoUsuario, string.Empty, string.Empty, 0);
+            DataSet ds = clsUsuario.RetornaDadosUsuario(CodigoUsuario, string.Empty, string.Empty, string.Empty, 0);
 
             userName.Value = (string)ds.Tables[0].Rows[0]["ds_nome"];
             userCoren.Value = (string)ds.Tables[1].Rows[0]["ds_coren"];
@@ -64,7 +64,7 @@ namespace SiteTcc
 
             CodigoUsuario = Convert.ToInt32(Param2);
 
-            DataSet ds = clsUsuario.RetornaDadosUsuario(CodigoUsuario, string.Empty, string.Empty, 0);
+            DataSet ds = clsUsuario.RetornaDadosUsuario(CodigoUsuario, string.Empty, string.Empty, string.Empty, 0);
 
 
             string sintomas = symptoms.Value;

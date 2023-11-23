@@ -34,7 +34,7 @@ namespace SiteTcc
 
             int CodigoUsuario = Convert.ToInt32(Param2);
 
-            DataSet ds = clsUsuario.RetornaDadosUsuario(CodigoUsuario, string.Empty, string.Empty, 0);
+            DataSet ds = clsUsuario.RetornaDadosUsuario(CodigoUsuario, string.Empty, string.Empty, string.Empty, 0);
 
             DataTable dataTable = ds.Tables[2];
 

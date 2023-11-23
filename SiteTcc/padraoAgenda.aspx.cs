@@ -52,7 +52,12 @@ namespace SiteTcc
                 }
             }
 
-            DataSet ds = clsUsuario.RetornaDadosUsuario(CodigoUsuario, dataInicio, dataFim, 1);
+            string Exame = string.Empty;
+
+            if (cboTipoPesq.SelectedValue != "0")
+                Exame = cboTipoPesq.SelectedItem.ToString();
+
+            DataSet ds = clsUsuario.RetornaDadosUsuario(CodigoUsuario, dataInicio, dataFim, Exame ,1);
 
             DataTable dataTable = ds.Tables[0];
 
@@ -63,7 +68,7 @@ namespace SiteTcc
             }
             else
             {
-                validaDados.ClientMessage(this, "Agendamentos não encontado nesse período");
+                validaDados.ClientMessage(this, "Agendamentos não encontado");
                 return;
             }
         }
@@ -171,13 +176,19 @@ namespace SiteTcc
                     if (DateTime.TryParse(valorDtAgendamento, out dataAgendamento))
                         if (dataAgendamento < DateTime.Now)
                         {
-                            validaDados.ClientMessage(this, "Por favor, informar data maior que hoje.");
+                            validaDados.ClientMessage(this, "Por favor, informar a data com dois dias de antecedência.");
                             return;
                         }
 
-                    if(cboMarcar.SelectedValue == "0")
+                    if (cboMarcar.SelectedValue == "0")
                     {
                         validaDados.ClientMessage(this, "Por favor, informar o campo Tipo.");
+                        return;
+                    }
+
+                    if (cboHora.SelectedValue == "0")
+                    {
+                        validaDados.ClientMessage(this, "Por favor, informar o Horário.");
                         return;
                     }
 
@@ -186,7 +197,7 @@ namespace SiteTcc
 
                     string dtAgenda = dtAgendamento.Value;
 
-                    usuario.RetornaIncluiAgenda(CodigoUsuario, dtAgenda, cboAgendar.SelectedItem.ToString(), cboMarcar.SelectedItem.ToString());
+                    usuario.RetornaIncluiAgenda(CodigoUsuario, dtAgenda, cboAgendar.SelectedItem.ToString(), cboMarcar.SelectedItem.ToString(), cboHora.SelectedItem.ToString());
 
                     LimpaControles();
                     validaDados.ClientMessage(this, "Agendado com Sucesso.");
@@ -198,7 +209,9 @@ namespace SiteTcc
                 }
             }
             else if (radioOptions.SelectedValue == "1")
+            {
                 CarregaControle();
+            }
         }
 
         private void LimpaControles()
@@ -208,6 +221,8 @@ namespace SiteTcc
             dtFim.Value = "";
             cboMarcar.SelectedValue = "0";
             cboAgendar.SelectedValue = "0";
+            cboHora.SelectedValue = "0";
+            cboTipoPesq.SelectedValue = "0";
             gridView.DataSource = null;
             gridView.DataBind();
         }

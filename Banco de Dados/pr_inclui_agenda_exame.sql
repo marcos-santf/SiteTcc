@@ -11,7 +11,8 @@ CREATE PROCEDURE dbo.pr_inclui_agenda_exame(
 	@cd_usuario			INT,
 	@dt_exame			DATE,
 	@ds_tipo_exame		VARCHAR(100),
-	@ds_exame_agendado	VARCHAR(100)
+	@ds_exame_agendado	VARCHAR(100),
+	@ds_hora			VARCHAR(10)
 	)
 WITH ENCRYPTION
  AS
@@ -25,13 +26,15 @@ BEGIN
 			dt_exame,
 			dt_inclusao,
 			ds_tipo_exame,
-			ds_exame_agendado) 
+			ds_exame_agendado,
+			ds_hora) 
 		VALUES (
 			@cd_usuario,
 			@dt_exame,
 			getdate(),
 			@ds_tipo_exame,
-			@ds_exame_agendado)
+			@ds_exame_agendado,
+			@ds_hora)
 		
 	COMMIT TRANSACTION
 	return

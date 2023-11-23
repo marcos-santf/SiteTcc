@@ -32,17 +32,17 @@
                  <h2>Informações do Paciente</h2>
             </section>
             <br>
-            <p><h4>Nome Completo: </h4><input type="text" id="userName" runat="server" /></p>
-            <p><h4>CPF: </h4><input type="text" id="userCpf" runat="server" oninput="this.value = this.value.replace(/\D/g, '')" /></p>
-            <p><h4>RG: </h4><input type="text" id="userRg" runat="server" /></p>
-            <p><h4>Data de Nascimento: </h4><input type="date" id="userDateOfBirth" runat="server" CssClass="estilo-data"/><input type="text" id="Date" runat="server" visible="false"/></p>
+            <p><h4>Nome Completo: </h4><input type="text" id="userName" runat="server" required/></p>
+            <p><h4>CPF: </h4><input type="text" id="userCpf" runat="server" oninput="this.value = this.value.replace(/\D/g, '')" required/></p>
+            <p><h4>RG: </h4><input type="text" id="userRg" runat="server" required/></p>
+            <p><h4>Data de Nascimento: </h4><input type="date" id="userDateOfBirth" runat="server" CssClass="estilo-data" required/><input type="text" id="Date" runat="server" visible="false" required/></p>
             <p><h4>Responsável: </h4><input type="text" id="userResponsavel" runat="server" /></p>
             <p><h4>Telefone: </h4><input type="text" id="userPhone" runat="server" /></p>
             <p><h4>E-mail: </h4><input type="text" id="userEmail"  runat="server" /></p>
             <section id="pnSenha" runat="server">
-                <p><h4>Senha: </h4><input type="password" id="userSenha" runat="server" /></p>
-                <p><h4>Confirme a senha: </h4><input type="password" id="userConfSenha" runat="server" /></p>
-                <p><h4>Lembrete Senha: </h4><input type="text" id="userLembreteSenha" runat="server" /></p>
+                <p><h4>Senha: </h4><input type="password" id="userSenha" runat="server" required/></p>
+                <p><h4>Confirme a senha: </h4><input type="password" id="userConfSenha" runat="server" required/></p>
+                <p><h4>Lembrete Senha: </h4><input type="text" id="userLembreteSenha" runat="server" required/></p>
             </section>
             <section id="pnBotao" runat="server" style="text-align: center; margin-top: 20px;">
                     <asp:Button ID="submitButton" runat="server" Text="Enviar Dados" OnClick="submitButton_Click" CssClass="action-button" />

@@ -30,16 +30,34 @@
                 <div class="date-input-container">
                     <h4 style="margin-left: 26px; margin-right: 5px;">Data: </h4>
                     <input type="date" id="dtAgendamento" runat="server" CssClass="estilo-data"/>
+                    <h4 style="margin-left: 10px; margin-right: 5px;" id="idHora" runat="server">Hora: </h4>
+                    <asp:DropDownList ID="cboHora" runat="server" CssClass="estilo-cbo" required="true">
+                        <asp:ListItem Text="Selecionar" Value="0" />
+                        <asp:ListItem Text="09:00" Value="1" />
+                        <asp:ListItem Text="09:30" Value="2" />
+                        <asp:ListItem Text="10:00" Value="3" />
+                        <asp:ListItem Text="10:30" Value="4" />
+                        <asp:ListItem Text="11:00" Value="5" />
+                        <asp:ListItem Text="11:30" Value="6" />
+                        <asp:ListItem Text="12:00" Value="7" />
+                        <asp:ListItem Text="13:00" Value="8" />
+                        <asp:ListItem Text="13:30" Value="9" />
+                        <asp:ListItem Text="14:00" Value="10" />
+                        <asp:ListItem Text="14:30" Value="11" />
+                        <asp:ListItem Text="15:00" Value="12" />
+                        <asp:ListItem Text="15:30" Value="13" />
+                        <asp:ListItem Text="16:00" Value="14" />
+                    </asp:DropDownList>
                </div>
                <div class="date-input-container">
-                        <h4 style="margin-right: 5px;">Agendar: </h4>
+                    <h4 style="margin-right: 5px;">Agendar: </h4>
                     <asp:DropDownList ID="cboAgendar" runat="server" CssClass="estilo-cbo" AutoPostBack="true" OnSelectedIndexChanged="cboAgendar_SelectedIndexChanged">
                         <asp:ListItem Text="Exame de Sangue" Value="0" />
                         <asp:ListItem Text="Exames de Imagem" Value="1" />
                         <asp:ListItem Text="Exames Psicológicos" Value="2" />
                         <asp:ListItem Text="Vacina" Value="3" />
                     </asp:DropDownList>
-                    <h4 style="margin-left: 10px; margin-right: 5px;" id="idMarcar" runat="server">Tipo: </h4>
+                    <h4 style="margin-left: 10px; margin-right: 8px;" id="idMarcar" runat="server">Tipo: </h4>
                     <asp:DropDownList ID="cboMarcar" runat="server" CssClass="estilo-cbo" AutoGenerateColumns="True"></asp:DropDownList>
                 </div>
             </section>
@@ -47,8 +65,16 @@
                <div class="date-input-container">
                     <h4 style="margin-right: 5px;">De: </h4>
                     <input type="date" id="dtInicio" runat="server" CssClass="estilo-data"/>
-                    <h4 style="margin-left: 10px; margin-right: 5px;">Até: </h4>
+                    <h4 style="margin-left: 15px; margin-right: 5px;">Até: </h4>
                     <input type="date" id="dtFim" runat="server" CssClass="estilo-data"/>
+                    <h4 style="margin-left: 15px; margin-right: 5px;">Tipo: </h4>
+                    <asp:DropDownList ID="cboTipoPesq" runat="server" CssClass="estilo-cbo">
+                        <asp:ListItem Text="Selecionar" Value="0" />
+                        <asp:ListItem Text="Exame de Sangue" Value="1" />
+                        <asp:ListItem Text="Exames de Imagem" Value="2" />
+                        <asp:ListItem Text="Exames Psicológicos" Value="3" />
+                        <asp:ListItem Text="Vacina" Value="4" />
+                    </asp:DropDownList>
                </div>
                <br/>
                <asp:GridView ID="gridView" runat="server" AutoGenerateColumns="True"></asp:GridView>

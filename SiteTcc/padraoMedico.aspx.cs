@@ -49,7 +49,7 @@ namespace SiteTcc
 
             CodigoUsuario = Convert.ToInt32(Param2);
 
-            DataSet ds = clsUsuario.RetornaDadosUsuario(CodigoUsuario, string.Empty, string.Empty, 0);
+            DataSet ds = clsUsuario.RetornaDadosUsuario(CodigoUsuario, string.Empty, string.Empty, string.Empty, 0);
 
             radioOptions.RepeatDirection = RepeatDirection.Horizontal;
 
@@ -85,7 +85,7 @@ namespace SiteTcc
 
             CodigoUsuario = Convert.ToInt32(Param2);
 
-            DataSet ds = clsUsuario.RetornaDadosUsuario(CodigoUsuario, string.Empty, string.Empty, 0);
+            DataSet ds = clsUsuario.RetornaDadosUsuario(CodigoUsuario, string.Empty, string.Empty, string.Empty, 0);
 
             string diagnosticoMed = diagnosis.Value;
             string prescMed = prescription.Value;
@@ -117,7 +117,7 @@ namespace SiteTcc
                         cmd.Parameters.AddWithValue("@cd_exame", cdExame);
                         cmd.Parameters.AddWithValue("@ds_diagnostico_medico", diagnosticoMed);
                         cmd.Parameters.AddWithValue("@ds_prescricao_medica", prescMed);
-                        cmd.Parameters.AddWithValue("@ds_observacao_medica", prioridade);
+                        cmd.Parameters.AddWithValue("@ds_observacao_medica", obsMed);
                         cmd.Parameters.AddWithValue("@ind_prioridade", prioridade);
                         cmd.Parameters.AddWithValue("@ind_etapa_triagem", ind_triagem);
                         cmd.ExecuteNonQuery();

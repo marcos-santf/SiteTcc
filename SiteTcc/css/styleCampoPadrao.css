@@ -16,6 +16,15 @@
     width: 200px;
 }
 
+.estilo-hora {
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 5px;
+    width: 200px;
+}
+
 #gridView {
     border-collapse: collapse;
     width: 100%;

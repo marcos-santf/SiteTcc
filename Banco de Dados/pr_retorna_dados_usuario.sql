@@ -7,7 +7,7 @@ if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[pr_retorna
 drop procedure [dbo].[pr_retorna_dados_usuario]
 GO
 
-CREATE PROCEDURE dbo.pr_retorna_dados_usuario(@cd_usuario INT, @dt_inicio DATE = NULL, @dt_fim DATE = NULL, @ind_tipo INT)
+CREATE PROCEDURE dbo.pr_retorna_dados_usuario(@cd_usuario INT, @dt_inicio DATE = NULL, @dt_fim DATE = NULL, @ds_tipo_exame VARCHAR(100) = NULL ,@ind_tipo INT)
 WITH ENCRYPTION
  AS
 BEGIN
@@ -26,6 +26,9 @@ BEGIN
 		
 		IF(@dt_fim = '')
 			SET @dt_fim = NULL
+		
+		IF(@ds_tipo_exame = '')
+			SET @ds_tipo_exame = NULL
 
 		IF(@ind_tipo = 0)
 		BEGIN
@@ -173,29 +176,63 @@ BEGIN
 		END
 		ELSE IF(@ind_tipo = 1)
 		BEGIN
-
-			IF (@dt_inicio IS NOT NULL AND @dt_fim IS NOT NULL)
+			IF(@ds_tipo_exame IS NOT NULL)
 			BEGIN
-				SELECT 
-					CONVERT(varchar, dt_exame, 103)	AS [Data],
-					ds_tipo_exame					AS Tipo,
-					ds_exame_agendado				AS Agendado
-				FROM 
-					tb_agenda_exames 
-				WHERE 
-					cd_usuario = @cd_usuario AND 
-					dt_exame BETWEEN @dt_inicio AND @dt_fim
+				IF (@dt_inicio IS NOT NULL AND @dt_fim IS NOT NULL)
+				BEGIN
+					SELECT 
+						CONVERT(varchar, dt_exame, 103)	AS [Data],
+						ds_tipo_exame					AS Tipo,
+						ds_exame_agendado				AS Agendado,
+						ds_hora							AS Horário
+					FROM 
+						tb_agenda_exames 
+					WHERE 
+						cd_usuario = @cd_usuario AND 
+						ds_tipo_exame = @ds_tipo_exame AND
+						dt_exame BETWEEN @dt_inicio AND @dt_fim
+				END
+				ELSE 
+				BEGIN
+					SELECT 
+						CONVERT(varchar, dt_exame, 103)	AS [Data],
+						ds_tipo_exame					AS Tipo,
+						ds_exame_agendado				AS Agendado,
+						ds_hora							AS Horário
+					FROM 
+						tb_agenda_exames 
+					WHERE 
+						cd_usuario = @cd_usuario AND
+						ds_tipo_exame = @ds_tipo_exame 
+				END
 			END
-			ELSE 
+			ELSE
 			BEGIN
-				SELECT 
-					CONVERT(varchar, dt_exame, 103)	AS [Data],
-					ds_tipo_exame					AS Tipo,
-					ds_exame_agendado				AS Agendado
-				FROM 
-					tb_agenda_exames 
-				WHERE 
-					cd_usuario = @cd_usuario
+				IF (@dt_inicio IS NOT NULL AND @dt_fim IS NOT NULL)
+				BEGIN
+					SELECT 
+						CONVERT(varchar, dt_exame, 103)	AS [Data],
+						ds_tipo_exame					AS Tipo,
+						ds_exame_agendado				AS Agendado,
+						ds_hora							AS Horário
+					FROM 
+						tb_agenda_exames 
+					WHERE 
+						cd_usuario = @cd_usuario AND 
+						dt_exame BETWEEN @dt_inicio AND @dt_fim
+				END
+				ELSE 
+				BEGIN
+					SELECT 
+						CONVERT(varchar, dt_exame, 103)	AS [Data],
+						ds_tipo_exame					AS Tipo,
+						ds_exame_agendado				AS Agendado,
+						ds_hora							AS Horário
+					FROM 
+						tb_agenda_exames 
+					WHERE 
+						cd_usuario = @cd_usuario
+				END
 			END
 		END
 	

@@ -72,7 +72,7 @@ namespace SiteTCC
 
             int CodigoUsuario = Convert.ToInt32(Param2);
 
-            DataSet ds = clsUsuario.RetornaDadosUsuario(CodigoUsuario, string.Empty, string.Empty, 0);
+            DataSet ds = clsUsuario.RetornaDadosUsuario(CodigoUsuario, string.Empty, string.Empty, string.Empty, 0);
 
             userName.Value = (string)ds.Tables[0].Rows[0]["ds_nome"];
             userCpf.Value = (string)ds.Tables[0].Rows[0]["ds_cpf"];

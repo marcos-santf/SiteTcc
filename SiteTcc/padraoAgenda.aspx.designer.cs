@@ -69,6 +69,24 @@ namespace SiteTcc
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl dtAgendamento;
 
         /// <summary>
+        /// Controle idHora.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl idHora;
+
+        /// <summary>
+        /// Controle cboHora.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList cboHora;
+
+        /// <summary>
         /// Controle cboAgendar.
         /// </summary>
         /// <remarks>
@@ -121,6 +139,15 @@ namespace SiteTcc
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl dtFim;
+
+        /// <summary>
+        /// Controle cboTipoPesq.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList cboTipoPesq;
 
         /// <summary>
         /// Controle gridView.

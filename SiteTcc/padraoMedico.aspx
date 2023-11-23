@@ -36,6 +36,15 @@
             <br>
             <br>
 
+            <h2>Informações da Enfermeira</h2>
+            <br>
+            <p><h4>Nome Completo: <input type="text" id="userName" runat="server"></p>
+            <p><h4>COREN: <input type="text" id="userCoren" runat="server"></p>
+
+            <br>
+            <br>
+            <br>
+
             <h2>Informações do Atendimento</h2>
             <br>
             <p><h4>Sintomas: <input type="text" id="symptoms" runat="server"></p>
@@ -59,21 +68,12 @@
             <br>
             <br>
 
-            <h2>Informações da Enfermeira</h2>
-            <br>
-            <p><h4>Nome Completo: <input type="text" id="userName" runat="server"></p>
-            <p><h4>COREN: <input type="text" id="userCoren" runat="server"></p>
-
-            <br>
-            <br>
-            <br>
-
            <asp:RadioButtonList ID="radioOptions" runat="server" CssClass="horizontal-radio">
                 <asp:ListItem Text="Encaminhamento" Value="3" />
                 <asp:ListItem Text="Exames Diagnósticos" Value="5" />
                 <asp:ListItem Text="Encaminhamento Especializado" Value="7" />
                 <asp:ListItem Text="Alta" Value="9" Selected="True" />
-            </asp:RadioButtonList>
+           </asp:RadioButtonList>
 
            <br><br><br>
             <section id="pnBotao" runat="server" style="text-align: center; margin-top: 20px;">

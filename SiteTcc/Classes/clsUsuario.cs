@@ -15,7 +15,7 @@ namespace SiteTcc.Classes
 {
     public class clsUsuario
     {
-        public static DataSet RetornaDadosUsuario(int CodigoUsuario, string dtInicio, string dtFim, int tipoPesquisa)
+        public static DataSet RetornaDadosUsuario(int CodigoUsuario, string dtInicio, string dtFim, string Exame ,int tipoPesquisa)
         {
             DataSet dataSet = new DataSet();
 
@@ -33,8 +33,9 @@ namespace SiteTcc.Classes
                             cmd.Parameters.AddWithValue("@cd_usuario", CodigoUsuario);
                             cmd.Parameters.AddWithValue("@dt_inicio", dtInicio);
                             cmd.Parameters.AddWithValue("@dt_fim", dtFim);
+                            cmd.Parameters.AddWithValue("@ds_tipo_exame", Exame);
                             cmd.Parameters.AddWithValue("@ind_tipo", tipoPesquisa);
-
+                            
                             using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
                             {
                                 adapter.Fill(dataSet);
@@ -55,7 +56,7 @@ namespace SiteTcc.Classes
             }
         }
 
-        public void RetornaIncluiAgenda(int CodigoUsuario, string DtAgendamento, string TipoExame, string Exame)
+        public void RetornaIncluiAgenda(int CodigoUsuario, string DtAgendamento, string TipoExame, string Exame, string Hora)
         {
             try
             {
@@ -70,6 +71,7 @@ namespace SiteTcc.Classes
                         cmd.Parameters.AddWithValue("@dt_exame", DtAgendamento);
                         cmd.Parameters.AddWithValue("@ds_tipo_exame", TipoExame);
                         cmd.Parameters.AddWithValue("@ds_exame_agendado", Exame);
+                        cmd.Parameters.AddWithValue("@ds_hora", Hora);
                         cmd.ExecuteNonQuery();
                     }
                 }

@@ -78,6 +78,24 @@ namespace SiteTcc
         protected global::System.Web.UI.WebControls.Label idSenha;
 
         /// <summary>
+        /// Controle userName.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText userName;
+
+        /// <summary>
+        /// Controle userCoren.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText userCoren;
+
+        /// <summary>
         /// Controle symptoms.
         /// </summary>
         /// <remarks>
@@ -157,24 +175,6 @@ namespace SiteTcc
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText doctorObservations;
-
-        /// <summary>
-        /// Controle userName.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText userName;
-
-        /// <summary>
-        /// Controle userCoren.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText userCoren;
 
         /// <summary>
         /// Controle radioOptions.

@@ -55,6 +55,7 @@ CREATE TABLE tb_paciente (
 	fg_excluido BIT DEFAULT 0,
 	ind_etapa_triagem INT DEFAULT 0,
 	ind_prioridade INT DEFAULT 0,
+	nr_senha VARCHAR(100),
 	CONSTRAINT FK_Paciente_Usuario FOREIGN KEY (cd_usuario) REFERENCES tb_usuario(cd_usuario)
 )
 
@@ -112,5 +113,6 @@ CREATE TABLE tb_agenda_exames (
 	dt_alteracao DATETIME,
 	fg_excluido BIT DEFAULT 0,
 	ds_tipo_exame VARCHAR(100),
-	ds_exame_agendado VARCHAR(100)
+	ds_exame_agendado VARCHAR(100),
+	ds_hora VARCHAR(10)
 )
