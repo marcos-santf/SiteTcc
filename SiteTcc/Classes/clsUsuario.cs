@@ -81,5 +81,27 @@ namespace SiteTcc.Classes
                 throw new Exception(ex.Message);
             }
         }
+
+        public void ExcluiAgenda(int CodigoAgenda)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["HOSPITALConnectionString"].ConnectionString))
+                {
+                    connection.Open();
+
+                    using (SqlCommand cmd = new SqlCommand("pr_exclui_agenda_exame", connection))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@cd_agenda", CodigoAgenda);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

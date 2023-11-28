@@ -55,6 +55,10 @@ namespace SiteTCC
                 pnAtendimento.Visible = false;
                 pnBotao.Visible = true;
                 pnSenha.Visible = false;
+                userName.Disabled = true;
+                userCpf.Disabled = true;
+                userRg.Disabled = true;
+                Date.Disabled = true;
             }
 
             if (idSenha.Text == "")

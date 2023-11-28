@@ -79,9 +79,9 @@
                <br/>
                <asp:GridView ID="gridView" runat="server" OnRowDataBound="gridView_RowDataBound" OnRowCommand="gridView_RowCommand">
                     <Columns>
-                        <asp:TemplateField HeaderText="Desmarcar">
+                        <asp:TemplateField HeaderText="Cancelar">
                             <ItemTemplate>
-                                <asp:ImageButton ID="btnAcao" runat="server" ImageUrl="~/img/iconLixeira.png" CommandName="Desmarcar" CommandArgument='<%# Container.DataItemIndex %>' />
+                                <asp:ImageButton ID="btnAcao" runat="server" ImageUrl="~/img/iconLixeira.png" CommandName="CANCELAR" CommandArgument='<%# Container.DataItemIndex %>' />
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>

@@ -84,10 +84,10 @@ namespace SiteTcc
             clsUsuario usuario = new clsUsuario();
             clsValidaDados validaDados = new clsValidaDados();
 
-            if (e.CommandName == "Desmarcar")
+            if (e.CommandName == "CANCELAR")
             {
                 int rowIndex = Convert.ToInt32(e.CommandArgument);
-    
+
                 GridViewRow row = gridView.Rows[rowIndex];
 
                 int IDagenda = Convert.ToInt32(row.Cells[1].Text);

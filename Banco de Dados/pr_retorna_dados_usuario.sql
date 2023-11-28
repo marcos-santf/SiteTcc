@@ -181,6 +181,7 @@ BEGIN
 				IF (@dt_inicio IS NOT NULL AND @dt_fim IS NOT NULL)
 				BEGIN
 					SELECT 
+						cd_agenda AS Código,
 						CONVERT(varchar, dt_exame, 103)	AS [Data],
 						ds_tipo_exame					AS Tipo,
 						ds_exame_agendado				AS Agendado,
@@ -189,12 +190,14 @@ BEGIN
 						tb_agenda_exames 
 					WHERE 
 						cd_usuario = @cd_usuario AND 
+						fg_excluido = 0 AND
 						ds_tipo_exame = @ds_tipo_exame AND
 						dt_exame BETWEEN @dt_inicio AND @dt_fim
 				END
 				ELSE 
 				BEGIN
 					SELECT 
+						cd_agenda AS Código,
 						CONVERT(varchar, dt_exame, 103)	AS [Data],
 						ds_tipo_exame					AS Tipo,
 						ds_exame_agendado				AS Agendado,
@@ -203,6 +206,7 @@ BEGIN
 						tb_agenda_exames 
 					WHERE 
 						cd_usuario = @cd_usuario AND
+						fg_excluido = 0 AND
 						ds_tipo_exame = @ds_tipo_exame 
 				END
 			END
@@ -211,6 +215,7 @@ BEGIN
 				IF (@dt_inicio IS NOT NULL AND @dt_fim IS NOT NULL)
 				BEGIN
 					SELECT 
+						cd_agenda AS Código,
 						CONVERT(varchar, dt_exame, 103)	AS [Data],
 						ds_tipo_exame					AS Tipo,
 						ds_exame_agendado				AS Agendado,
@@ -219,11 +224,13 @@ BEGIN
 						tb_agenda_exames 
 					WHERE 
 						cd_usuario = @cd_usuario AND 
+						fg_excluido = 0 AND
 						dt_exame BETWEEN @dt_inicio AND @dt_fim
 				END
 				ELSE 
 				BEGIN
 					SELECT 
+						cd_agenda AS Código,
 						CONVERT(varchar, dt_exame, 103)	AS [Data],
 						ds_tipo_exame					AS Tipo,
 						ds_exame_agendado				AS Agendado,
@@ -231,7 +238,8 @@ BEGIN
 					FROM 
 						tb_agenda_exames 
 					WHERE 
-						cd_usuario = @cd_usuario
+						cd_usuario = @cd_usuario AND
+						fg_excluido = 0 
 				END
 			END
 		END

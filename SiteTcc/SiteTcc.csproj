@@ -275,6 +275,7 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="img\iconLixeira.png" />
     <Content Include="img\icons_hospital.png" />
     <Content Include="img\imgLogin.jpg" />
     <Content Include="js\scriptLogin.js" />
@@ -313,6 +314,7 @@
     <Content Include="Content\bootstrap-grid.rtl.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <None Include="Properties\PublishProfiles\MedOptiCare - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\TriagemHospitalar - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
