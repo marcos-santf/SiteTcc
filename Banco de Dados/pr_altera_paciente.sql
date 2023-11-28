@@ -28,11 +28,11 @@ BEGIN
 		
 		IF(@tipo = 0)
 		BEGIN
-			IF EXISTS(SELECT 1 FROM tb_pessoa p INNER JOIN tb_usuario u ON p.cd_pessoa = u.cd_pessoa WHERE p.ds_cpf = @ds_cpf AND p.fg_excluido = 0 AND u.cd_usuario != @CodigoUsuario)
-			BEGIN
-				RAISERROR('CPF já Cadastrado.', 16, 1)
-				GOTO erro
-			END
+			--IF EXISTS(SELECT 1 FROM tb_pessoa p INNER JOIN tb_usuario u ON p.cd_pessoa = u.cd_pessoa WHERE p.ds_cpf = @ds_cpf AND p.fg_excluido = 0 AND u.cd_usuario != @CodigoUsuario)
+			--BEGIN
+			--	RAISERROR('CPF já Cadastrado.', 16, 1)
+			--	GOTO erro
+			--END
 
 			IF(@ds_telefone = '')
 			BEGIN
