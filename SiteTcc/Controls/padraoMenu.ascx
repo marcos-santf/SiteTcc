@@ -20,19 +20,19 @@
         </div><!--btn-expandir-->
         <ul>
             <li class="item-menu">
-                <a href="#" class="item-menu" type="submit" id="home">
+                <a href="#" class="item-menu" type="submit" id="home" title="Início">
                     <span class="icon"><i class="bi bi-house-door"></i></span>
                     <span class="txt-link">Início</span>
                 </a>
             </li>
             <li class="item-menu">
-                <a href="#" class="item-menu" type="submit" id="exame">
+                <a href="#" class="item-menu" type="submit" id="exame" title="Exames Anteriores">
                     <span class="icon"><i class="bi bi-file-earmark-medical"></i></span>
                     <span class="txt-link">Exames</span>
                 </a>
             </li>
             <li class="item-menu">
-                <a href="#" class="item-menu" type="submit" id="agenda">
+                <a href="#" class="item-menu" type="submit" id="agenda" title="Agendamento">
                     <span class="icon"><i class="bi bi-calendar3"></i></span>
                     <span class="txt-link">Agendar</span>
                 </a>
@@ -44,13 +44,13 @@
                 </a>
             </li>--%>
             <li class="item-menu">
-                <a href="#" class="item-menu" type="submit" id="conta">
+                <a href="#" class="item-menu" type="submit" id="conta" title="Conta">
                     <span class="icon"><i class="bi bi-person-circle"></i></span>
                     <span class="txt-link">Conta</span>
                 </a>
             </li>
             <li class="item-menu">
-                <a href="#" class="item-menu" type="submit" id="sair">
+                <a href="#" class="item-menu" type="submit" id="sair" title="Sair">
                     <span class="icon"><i class="bi bi-arrow-left"></i></span>
                     <span class="txt-link">Sair</span>
                 </a>

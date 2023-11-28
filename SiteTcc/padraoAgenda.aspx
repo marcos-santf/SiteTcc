@@ -81,7 +81,7 @@
                     <Columns>
                         <asp:TemplateField HeaderText="Cancelar">
                             <ItemTemplate>
-                                <asp:ImageButton ID="btnAcao" runat="server" ImageUrl="~/img/iconLixeira.png" CommandName="CANCELAR" CommandArgument='<%# Container.DataItemIndex %>' />
+                                <asp:ImageButton ID="btnAcao" ToolTip="Cancelar Agendamento" runat="server" ImageUrl="~/img/iconLixeira.png" CommandName="CANCELAR" CommandArgument='<%# Container.DataItemIndex %>' />
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
