@@ -25,7 +25,7 @@ namespace SiteTcc
             }
         }
 
-        private void CarregaControle()
+        private void CarregaControle( int Tipo)
         {
             clsValidaDados validaDados = new clsValidaDados();
 
@@ -66,10 +66,42 @@ namespace SiteTcc
                 gridView.DataSource = dataTable;
                 gridView.DataBind();
             }
+            else if(Tipo == 1)
+            {
+                gridView.DataSource = null;
+                gridView.DataBind();
+            }
             else
             {
-                validaDados.ClientMessage(this, "Agendamentos não encontado");
+                validaDados.ClientMessage(this, "Agendamentos não encontrados");
+                LimpaControles();
                 return;
+            }
+        }
+
+        protected void gridView_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            clsUsuario usuario = new clsUsuario();
+            clsValidaDados validaDados = new clsValidaDados();
+
+            if (e.CommandName == "Desmarcar")
+            {
+                int rowIndex = Convert.ToInt32(e.CommandArgument);
+    
+                GridViewRow row = gridView.Rows[rowIndex];
+
+                int IDagenda = Convert.ToInt32(row.Cells[1].Text);
+
+                usuario.ExcluiAgenda(IDagenda);
+
+                CarregaControle(1);
+            }
+        }
+
+        protected void gridView_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow && e.Row.DataItem is DataRowView rowView)
+            {
             }
         }
 
@@ -210,7 +242,7 @@ namespace SiteTcc
             }
             else if (radioOptions.SelectedValue == "1")
             {
-                CarregaControle();
+                CarregaControle(0);
             }
         }
 

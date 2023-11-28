@@ -77,7 +77,17 @@
                     </asp:DropDownList>
                </div>
                <br/>
-               <asp:GridView ID="gridView" runat="server" AutoGenerateColumns="True"></asp:GridView>
+               <asp:GridView ID="gridView" runat="server" OnRowDataBound="gridView_RowDataBound" OnRowCommand="gridView_RowCommand">
+                    <Columns>
+                        <asp:TemplateField HeaderText="Desmarcar">
+                            <ItemTemplate>
+                                <asp:ImageButton ID="btnAcao" runat="server" ImageUrl="~/img/iconLixeira.png" CommandName="Desmarcar" CommandArgument='<%# Container.DataItemIndex %>' />
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+                </asp:GridView>
+
+
             </section>
             <br><br><br><br>
             <section id="pnBotao" runat="server" style="text-align: center; margin-top: 20px;">
