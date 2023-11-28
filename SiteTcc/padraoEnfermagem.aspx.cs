@@ -20,7 +20,10 @@ namespace SiteTcc
             if (Request.QueryString["P"] != "1")
             {
                 if (!IsPostBack)
-                    CarregaControle();
+                {
+                }
+
+                CarregaControle();
             }
             else
             {
@@ -50,33 +53,40 @@ namespace SiteTcc
             {
                 patientName.Value = (string)ds.Tables[2].Rows[0]["ds_nome_paciente"];
                 idSenha.Text = ds.Tables[2].Rows[0]["nr_senha"] == DBNull.Value ? string.Empty : (string)ds.Tables[2].Rows[0]["nr_senha"];
+                pnBotao.Visible = true;
             }
             else
+            {
                 pnBotao.Visible = false;
+                LimpaControles();
+            }
         }
 
         protected void submitButton_Click(object sender, EventArgs e)
         {
-            string Param2 = string.Empty;
-            int CodigoUsuario = int.MinValue;
+            if (pnBotao.Visible == true)
+            {
+                string Param2 = string.Empty;
+                int CodigoUsuario = int.MinValue;
 
-            Param2 = clsCriptografia.Decrypt(Request.QueryString["Param2"], "Eita#$%Nois##", true);
+                Param2 = clsCriptografia.Decrypt(Request.QueryString["Param2"], "Eita#$%Nois##", true);
 
-            CodigoUsuario = Convert.ToInt32(Param2);
+                CodigoUsuario = Convert.ToInt32(Param2);
 
-            DataSet ds = clsUsuario.RetornaDadosUsuario(CodigoUsuario, string.Empty, string.Empty, string.Empty, 0);
+                DataSet ds = clsUsuario.RetornaDadosUsuario(CodigoUsuario, string.Empty, string.Empty, string.Empty, 0);
 
 
-            string sintomas = symptoms.Value;
-            string pressao = pressure.Value;
-            string batimento = heartRate.Value;
-            string oxigenacao = oxygenLevel.Value;
-            string queixaPaciente = patientComplaint.Value;
-            string obs = observations.Value;
-            string cdExame = ds.Tables[2].Rows[0]["cd_exame"].ToString();
-            string prioridade = ds.Tables[2].Rows[0]["ind_prioridade"].ToString();
+                string sintomas = symptoms.Value;
+                string pressao = pressure.Value;
+                string batimento = heartRate.Value;
+                string oxigenacao = oxygenLevel.Value;
+                string queixaPaciente = patientComplaint.Value;
+                string obs = observations.Value;
+                string cdExame = ds.Tables[2].Rows[0]["cd_exame"].ToString();
+                string prioridade = ds.Tables[2].Rows[0]["ind_prioridade"].ToString();
 
-            EnviarDadosPaciente(cdExame, sintomas, pressao, batimento, oxigenacao, queixaPaciente, obs, prioridade);
+                EnviarDadosPaciente(cdExame, sintomas, pressao, batimento, oxigenacao, queixaPaciente, obs, prioridade);
+            }
         }
 
         private void EnviarDadosPaciente(string cdExame, string sintomas, string pressao, string batimento, string oxigenacao, string queixaPaciente, string obs, string prioridade)

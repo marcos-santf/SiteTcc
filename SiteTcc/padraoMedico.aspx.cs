@@ -20,7 +20,10 @@ namespace SiteTcc
             if (Request.QueryString["P"] != "1")
             {
                 if (!IsPostBack)
-                    CarregaControle();
+                {
+                }
+                
+                CarregaControle();
             }
             else
             {
@@ -68,34 +71,38 @@ namespace SiteTcc
                 observations.Value = ds.Tables[2].Rows[0]["ds_observacoes_enfermagem"] == DBNull.Value ? string.Empty : (string)ds.Tables[2].Rows[0]["ds_observacoes_enfermagem"];
                 userName.Value = ds.Tables[2].Rows[0]["ds_nome_enfermagem"] == DBNull.Value ? string.Empty : (string)ds.Tables[2].Rows[0]["ds_nome_enfermagem"];
                 userCoren.Value = ds.Tables[2].Rows[0]["ds_coren"] == DBNull.Value ? string.Empty : (string)ds.Tables[2].Rows[0]["ds_coren"];
+                pnBotao.Visible = true;
             }
             else
             {
                 pnBotao.Visible = false;
-                //radioOptions.Visible = false;
+                LimpaControles();
             }
         }
 
         protected void submitButton_Click(object sender, EventArgs e)
         {
-            string Param2 = string.Empty;
-            int CodigoUsuario = int.MinValue;
+            if (pnBotao.Visible == true)
+            {
+                string Param2 = string.Empty;
+                int CodigoUsuario = int.MinValue;
 
-            Param2 = clsCriptografia.Decrypt(Request.QueryString["Param2"], "Eita#$%Nois##", true);
+                Param2 = clsCriptografia.Decrypt(Request.QueryString["Param2"], "Eita#$%Nois##", true);
 
-            CodigoUsuario = Convert.ToInt32(Param2);
+                CodigoUsuario = Convert.ToInt32(Param2);
 
-            DataSet ds = clsUsuario.RetornaDadosUsuario(CodigoUsuario, string.Empty, string.Empty, string.Empty, 0);
+                DataSet ds = clsUsuario.RetornaDadosUsuario(CodigoUsuario, string.Empty, string.Empty, string.Empty, 0);
 
-            string diagnosticoMed = diagnosis.Value;
-            string prescMed = prescription.Value;
-            string obsMed = doctorObservations.Value;
-            string cdExame = ds.Tables[2].Rows[0]["cd_exame"].ToString();
-            string prioridade = ds.Tables[2].Rows[0]["ind_prioridade"].ToString();
+                string diagnosticoMed = diagnosis.Value;
+                string prescMed = prescription.Value;
+                string obsMed = doctorObservations.Value;
+                string cdExame = ds.Tables[2].Rows[0]["cd_exame"].ToString();
+                string prioridade = ds.Tables[2].Rows[0]["ind_prioridade"].ToString();
 
-            int ind_triagem = Convert.ToInt32(radioOptions.SelectedValue);
+                int ind_triagem = Convert.ToInt32(radioOptions.SelectedValue);
 
-            EnviarDadosPaciente(cdExame, diagnosticoMed, prescMed, obsMed, prioridade, ind_triagem);
+                EnviarDadosPaciente(cdExame, diagnosticoMed, prescMed, obsMed, prioridade, ind_triagem);
+            }
         }
 
         private void EnviarDadosPaciente(string cdExame, string diagnosticoMed, string prescMed, string obsMed,string prioridade, int ind_triagem)
