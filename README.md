@@ -9,10 +9,10 @@
 
 Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
-- Instalar a versão mais recente de `<SQL Server Management Studio (SSMS)>` em https://www.microsoft.com/pt-br/sql-server/sql-server-downloads
-- Conecte o banco de dados SQL Sever `<SiteTcc/Banco de Dados/Acesso Banco de Dados.txt>`.
-- Instalar a versão mais recente de `<Microsoft Visual Studio>` em https://visualstudio.microsoft.com/pt-br/downloads/
-- Ter uma máquina `<Windows>`.
+- Instalar a versão mais recente de `SQL Server Management Studio (SSMS)` em https://www.microsoft.com/pt-br/sql-server/sql-server-downloads
+- Conecte o banco de dados SQL Sever `SiteTcc/Banco de Dados/Acesso Banco de Dados.txt`.
+- Instalar a versão mais recente de `Microsoft Visual Studio` em https://visualstudio.microsoft.com/pt-br/downloads/
+- Ter uma máquina `Windows`.
 - Se preferir, acessar o link direto do sistema: https://medopticare.azurewebsites.net/padraoLogin
 
 
