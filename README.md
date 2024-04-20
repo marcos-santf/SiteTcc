@@ -60,8 +60,8 @@ Atualizar dados pessoais:
 - Telefone
 - E-mail
 
-Também sera possivel acessar o sitema como médido ou enfermegem para testes, 
-para isso utilize o arquivo com os dados de acesso em SiteTcc/Banco de Dados/Acessos enfermagem-medicos.txt
+Também sera possivel acessar o sitema como médido ou enfermegem para testes, para isso utilize o arquivo com os dados de acesso em 
+SiteTcc/Banco de Dados/Acessos enfermagem-medicos.txt
 ```
 
 
