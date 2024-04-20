@@ -18,7 +18,7 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
 ## ☕ Usando Sistema
 
-Para usar Otimização do Atendimento Hospitalar, siga estas etapas:
+Para utilizar a Otimização do Atendimento Hospitalar, siga as funcionalidades do sistema:
 
 ```
 Após realizar os pré-requisitos, será possivel se cadastrar no sistema para conseguir acessar:
@@ -60,8 +60,11 @@ Atualizar dados pessoais:
 - Telefone
 - E-mail
 
-Também sera possivel acessar o sitema como médido ou enfermegem para testes, para isso utilize o arquivo com os
-dados de acesso em SiteTcc/Banco de Dados/Acessos enfermagem-medicos.txt
+Também sera possivel acessar o sitema como médico ou enfermagem para testes, para isso utilize o arquivo com os
+dados de acesso em SiteTcc/Banco de Dados/Acessos enfermagem-medicos.txt (Senhas da triagem seram direcionados 
+automaticamente a médicos e enfermagem com a menor ou nenhuma fila de espera, caso esteja conectado a esses perfis e 
+logo em seguida incluir um paciente, recarregue a pagina da enfermagem que será a primeira a receber as informações 
+para que os dados sejam apresentados o mesmo ocorro com acessos a login de médicos caso finalize a de enfermagem)
 ```
 
 
