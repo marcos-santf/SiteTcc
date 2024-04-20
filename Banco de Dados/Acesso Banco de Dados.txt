@@ -1,0 +1,3 @@
+Sever name: testegravacao.database.windows.net
+Login: MARCOS
+Password: m46148397@
