@@ -84,7 +84,7 @@ caso finalize o precesso de enfermagem.
     </td>
     <td align="center">
       <a href="https://github.com/ryfe-r" title="GitHub Rafael Fernades">
-        <img src="https://media-gru2-2.cdn.whatsapp.net/v/t61.24694-24/406057696_858690056259014_1184543478503932194_n.jpg?ccb=11-4&oh=01_Q5AaIEYjRYbAE8LVyWGNmf5a4clki0JyzqMys2-jWQjKw0Ju&oe=6631281F&_nc_sid=e6ed6c&_nc_cat=100" width="100px;" alt="Foto do Rafael Fernades no GitHub"/><br>
+        <img src="https://media-gru2-2.cdn.whatsapp.net/v/t61.24694-24/406057696_858690056259014_1184543478503932194_n.jpg?ccb=11-4&oh=01_Q5AaID7W94NgsqwDKlp82EtB1MQjYvxSHPBWzFk-GfWGpCLy&oe=6647919F&_nc_sid=e6ed6c&_nc_cat=100" width="100px;" alt="Foto do Rafael Fernades no GitHub"/><br>
         <sub>
           <b>Rafael Fernades</b>
         </sub>
