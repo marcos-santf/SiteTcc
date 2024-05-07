@@ -60,13 +60,14 @@ Atualizar dados pessoais:
 - Telefone
 - E-mail
 
-Também sera possivel acessar o sitema como médico ou enfermagem para testes, para isso utilize o arquivo com os
-dados de acesso em SiteTcc/Banco de Dados/Acessos enfermagem-medicos.txt 
 
-Senhas da triagem seram direcionados automaticamente a médicos e enfermagem com a menor ou nenhuma fila de espera, 
-caso esteja conectado a esses perfis e logo em seguida incluir um paciente, recarregue a pagina da enfermagem que será 
-a primeira a receber as informações para que os dados sejam apresentados o mesmo ocorro com acessos a login de médicos 
-caso finalize o precesso de enfermagem.
+Também será possível acessar o sistema como médico ou enfermeiro para testes. Para isso, utilize o arquivo com os 
+dados de acesso em SiteTcc/Banco de Dados/Acessos enfermagem-medicos.txt.
+
+As senhas da triagem serão direcionadas automaticamente aos médicos e enfermeiros com a menor ou nenhuma fila de espera. 
+Caso esteja conectado a esses perfis e logo em seguida incluir um paciente, recarregue a página da enfermagem, que será 
+a primeira a receber as informações para que os dados sejam apresentados. O mesmo ocorre com acessos ao login de médicos, 
+caso finalize o processo de enfermagem.
 ```
 
 
